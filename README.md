@@ -73,7 +73,7 @@ if __name__ == '__main__':
 
 ## Dictionaries and lexicons
 
-### Polish, english and foreign person names
+### Polish, English and foreign person names
 
 This lexicon contains 346 thousand forenames and lastnames labeled as Polish, English or Foreign (other) crawled from multiple Internet sources.
 Possible labels are: `P-N` (Polish forename), `P-L` (Polish lastname), `E-N` (English forename), `E-L` (English lastname), `F` (foreign / other). 
