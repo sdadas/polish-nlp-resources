@@ -70,3 +70,21 @@ if __name__ == '__main__':
 ```
 
 [Download](https://hkbaom-my.sharepoint.com/:u:/g/personal/pro12151_my365_site/EadfEruTw4REsFFywVp0lXcBG9CBpBDtLG3Fh2iNF1kPHg?e=RbtupZ)
+
+## Dictionaries and lexicons
+
+### Polish, english and foreign person names
+
+This lexicon contains 346 thousand forenames and lastnames labeled as Polish, English or Foreign (other) crawled from multiple Internet sources.
+Possible labels are: `P-N` (Polish forename), `P-L` (Polish lastname), `E-N` (English forename), `E-L` (English lastname), `F` (foreign / other). 
+For each word, there is an additional flag indicating whether this name is also used as a common word in Polish (`C` for common, `U` for uncommon).
+
+[Download](lexicons/names)
+
+### Named entities extracted from SJP.PL
+
+This dictionary consists mostly of the names of settlements, geographical regions, countries, continents and words derived from them (relational adjectives and inhabitant names). 
+Besides that, it also contains names of popular brands, companies and common abbreviations of institutions' names.
+This resource was created in a semi-automatic way, by extracting the words and their forms from SJP.PL using a set of heuristic rules and then manually filtering out words that weren't named entities.
+
+[Download](lexicons/named-sjp)
