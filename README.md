@@ -1,6 +1,8 @@
 # Polish NLP resources
 
-This repository contains pre-trained models and language resources for Natural Language Processing in Polish created during my research work. If you intend to use resources from this repository in your research, please cite: *"Actually, the article describing those resources has not been published yet so it will be added later :)"*.
+This repository contains pre-trained models and language resources for Natural Language Processing in Polish created during my research work. If you intend to use resources from this repository in your research, please cite: 
+
+*Sławomir Dadas: “Combining neural and knowledge-based approaches to Named Entity Recognition in Polish”, 2018; [arXiv:1811.10418](https://arxiv.org/abs/1811.10418).*
 
 ## Word embeddings
 
