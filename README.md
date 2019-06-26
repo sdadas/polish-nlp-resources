@@ -24,6 +24,8 @@ if __name__ == '__main__':
 
 [Download](https://hkbaom-my.sharepoint.com/:u:/g/personal/pro12151_my365_site/Ee6meFBL7FhBpj18UNu8NN0BejV_smb5hgGd3Ww57kuWbg?e=5bIZC7)
 
+**Warning!** For newer versions of Gensim, try renaming the file `word2vec_100_3_polish.npy` to `word2vec_100_3_polish.bin.syn0.npy` if you encounter any problems loading the embeddings.
+
 ### ELMo
 
 Embeddings from Language Models (ELMo) is a contextual embedding presented in [Deep contextualized word representations](https://arxiv.org/abs/1802.05365) by Peters et al. Since the usage of this model is not trivial and there are several different ways of integrating it into deep learning architecture, for more information on ELMo please refer to the official repositories [github.com/allenai/bilm-tf](https://github.com/allenai/bilm-tf) (Tensorflow) and [github.com/allenai/allennlp](https://github.com/allenai/allennlp) (PyTorch).
