@@ -22,15 +22,31 @@ if __name__ == '__main__':
 # [('cyrankiewicz', 0.818274736404419), ('gomułka', 0.7967918515205383), ('raczkiewicz', 0.7757788896560669), ('jaruzelski', 0.7737460732460022), ('pużak', 0.7667238712310791)]
 ```
 
-[Download](https://hkbaom-my.sharepoint.com/:u:/g/personal/pro12151_my365_site/Ee6meFBL7FhBpj18UNu8NN0BejV_smb5hgGd3Ww57kuWbg?e=5bIZC7)
+[Download](https://drive.google.com/open?id=1t2NsXHE0x5MfUvPR5MDV3_2TlxtdLkzz)
 
 **Warning!** For newer versions of Gensim, try renaming the file `word2vec_100_3_polish.npy` to `word2vec_100_3_polish.bin.syn0.npy` if you encounter any problems loading the embeddings.
 
+### FastText
+
+FastText trained with [Gensim](https://radimrehurek.com/gensim/). Vocabulary and dimensionality is identical to Word2Vec model. The archive contains embedding in gensim binary format. Sample usage:
+
+```python
+from gensim.models import KeyedVectors
+
+if __name__ == '__main__':
+    word2vec = KeyedVectors.load("fasttext_100_3_polish.bin")
+    print(word2vec.similar_by_word("bierut"))
+    
+# [('bieruty', 0.9290274381637573), ('gierut', 0.8921363353729248), ('bieruta', 0.8906412124633789), ('bierutow', 0.8795544505119324), ('bierutowsko', 0.839280366897583)]
+```
+
+[Download](https://drive.google.com/open?id=1_suJ-AxZ9yZ5zB5uW8UIaBJDNni83ZxJ)
+ 
 ### ELMo
 
 Embeddings from Language Models (ELMo) is a contextual embedding presented in [Deep contextualized word representations](https://arxiv.org/abs/1802.05365) by Peters et al. Since the usage of this model is not trivial and there are several different ways of integrating it into deep learning architecture, for more information on ELMo please refer to the official repositories [github.com/allenai/bilm-tf](https://github.com/allenai/bilm-tf) (Tensorflow) and [github.com/allenai/allennlp](https://github.com/allenai/allennlp) (PyTorch).
 
-[Download](https://hkbaom-my.sharepoint.com/:u:/g/personal/pro12151_my365_site/EdEy-2Q1JwFPlzH7uYteU_QBTUHwU_m5ZqF4u2kIUMKfaA?e=rXeqEd)
+[Download](https://drive.google.com/open?id=110c2H7_fsBvVmGJy08FEkkyRiMOhInBP)
 
 ### Compressed Word2Vec
 
@@ -73,7 +89,7 @@ if __name__ == '__main__':
     print(word2vec.vocab_vector("bierut"))
 ```
 
-[Download](https://hkbaom-my.sharepoint.com/:u:/g/personal/pro12151_my365_site/EadfEruTw4REsFFywVp0lXcBG9CBpBDtLG3Fh2iNF1kPHg?e=RbtupZ)
+[Download](https://drive.google.com/open?id=1vkAHM5m9AnWeVEaWqU2nXO_0Odkxsu49)
 
 ## Dictionaries and lexicons
 
