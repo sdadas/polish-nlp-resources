@@ -41,6 +41,22 @@ if __name__ == '__main__':
 ```
 
 [Download](https://drive.google.com/open?id=1_suJ-AxZ9yZ5zB5uW8UIaBJDNni83ZxJ)
+
+### GloVe
+
+Global Vectors for Word Representation (GloVe) trained using the reference implementation from Stanford NLP. 100 dimensions, contains lemmatized words with 3 or more ocurrences in the corpus. Sample usage:
+
+```python
+from gensim.models import KeyedVectors
+
+if __name__ == '__main__':
+    word2vec = KeyedVectors.load_word2vec_format("glove_100_3_polish.txt")
+    print(word2vec.similar_by_word("bierut"))
+    
+# [('cyrankiewicz', 0.8335597515106201), ('gomułka', 0.7793121337890625), ('bieruta', 0.7118682861328125), ('jaruzelski', 0.6743760108947754), ('minc', 0.6692837476730347)]
+```
+
+[Download](https://drive.google.com/open?id=1hLGZYOzG543p18ac-AfEsGXQGO6ioKex)
  
 ### ELMo
 
