@@ -22,7 +22,7 @@ if __name__ == '__main__':
 # [('cyrankiewicz', 0.818274736404419), ('gomułka', 0.7967918515205383), ('raczkiewicz', 0.7757788896560669), ('jaruzelski', 0.7737460732460022), ('pużak', 0.7667238712310791)]
 ```
 
-[Download](https://drive.google.com/open?id=1t2NsXHE0x5MfUvPR5MDV3_2TlxtdLkzz)
+[Download (Google Drive)](https://drive.google.com/open?id=1t2NsXHE0x5MfUvPR5MDV3_2TlxtdLkzz) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/word2vec.zip)
 
 **Warning!** For newer versions of Gensim, try renaming the file `word2vec_100_3_polish.npy` to `word2vec_100_3_polish.bin.syn0.npy` if you encounter any problems loading the embeddings.
 
@@ -40,7 +40,7 @@ if __name__ == '__main__':
 # [('bieruty', 0.9290274381637573), ('gierut', 0.8921363353729248), ('bieruta', 0.8906412124633789), ('bierutow', 0.8795544505119324), ('bierutowsko', 0.839280366897583)]
 ```
 
-[Download](https://drive.google.com/open?id=1_suJ-AxZ9yZ5zB5uW8UIaBJDNni83ZxJ)
+[Download (Google Drive)](https://drive.google.com/open?id=1_suJ-AxZ9yZ5zB5uW8UIaBJDNni83ZxJ)
 
 ### GloVe
 
@@ -56,13 +56,13 @@ if __name__ == '__main__':
 # [('cyrankiewicz', 0.8335597515106201), ('gomułka', 0.7793121337890625), ('bieruta', 0.7118682861328125), ('jaruzelski', 0.6743760108947754), ('minc', 0.6692837476730347)]
 ```
 
-[Download](https://drive.google.com/open?id=1hLGZYOzG543p18ac-AfEsGXQGO6ioKex)
+[Download (Google Drive)](https://drive.google.com/open?id=1hLGZYOzG543p18ac-AfEsGXQGO6ioKex) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/glove.zip)
  
 ### ELMo
 
 Embeddings from Language Models (ELMo) is a contextual embedding presented in [Deep contextualized word representations](https://arxiv.org/abs/1802.05365) by Peters et al. Since the usage of this model is not trivial and there are several different ways of integrating it into deep learning architecture, for more information on ELMo please refer to the official repositories [github.com/allenai/bilm-tf](https://github.com/allenai/bilm-tf) (Tensorflow) and [github.com/allenai/allennlp](https://github.com/allenai/allennlp) (PyTorch).
 
-[Download](https://drive.google.com/open?id=110c2H7_fsBvVmGJy08FEkkyRiMOhInBP)
+[Download (Google Drive)](https://drive.google.com/open?id=110c2H7_fsBvVmGJy08FEkkyRiMOhInBP) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/elmo.zip)
 
 ### Compressed Word2Vec
 
@@ -105,7 +105,7 @@ if __name__ == '__main__':
     print(word2vec.vocab_vector("bierut"))
 ```
 
-[Download](https://drive.google.com/open?id=1vkAHM5m9AnWeVEaWqU2nXO_0Odkxsu49)
+[Download (Google Drive)](https://drive.google.com/open?id=1vkAHM5m9AnWeVEaWqU2nXO_0Odkxsu49) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/compressed.zip)
 
 ## Dictionaries and lexicons
 
@@ -115,7 +115,7 @@ This lexicon contains 346 thousand forenames and lastnames labeled as Polish, En
 Possible labels are: `P-N` (Polish forename), `P-L` (Polish lastname), `E-N` (English forename), `E-L` (English lastname), `F` (foreign / other). 
 For each word, there is an additional flag indicating whether this name is also used as a common word in Polish (`C` for common, `U` for uncommon).
 
-[Download](lexicons/names)
+[Download (GitHub)](lexicons/names)
 
 ### Named entities extracted from SJP.PL
 
@@ -123,4 +123,4 @@ This dictionary consists mostly of the names of settlements, geographical region
 Besides that, it also contains names of popular brands, companies and common abbreviations of institutions' names.
 This resource was created in a semi-automatic way, by extracting the words and their forms from SJP.PL using a set of heuristic rules and then manually filtering out words that weren't named entities.
 
-[Download](lexicons/named-sjp)
+[Download (GitHub)](lexicons/named-sjp)
