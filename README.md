@@ -24,8 +24,6 @@ if __name__ == '__main__':
 
 [Download (Google Drive)](https://drive.google.com/open?id=1t2NsXHE0x5MfUvPR5MDV3_2TlxtdLkzz) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/word2vec.zip)
 
-**Warning!** For newer versions of Gensim, try renaming the file `word2vec_100_3_polish.npy` to `word2vec_100_3_polish.bin.syn0.npy` if you encounter any problems loading the embeddings.
-
 ### FastText
 
 FastText trained with [Gensim](https://radimrehurek.com/gensim/). Vocabulary and dimensionality is identical to Word2Vec model. The archive contains embedding in gensim binary format. Sample usage:
