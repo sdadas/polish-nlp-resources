@@ -2,6 +2,13 @@
 
 This repository contains pre-trained models and language resources for Natural Language Processing in Polish created during my research work.
 
+## Contents
+
+- [Word embeddings and language models](#word-embeddings-and-language-models)
+- [Machine translation models](#machine-translation-models)
+- [Dictionaries and lexicons](#dictionaries-and-lexicons)
+
+
 ## Word embeddings and language models
 
 The following section includes pre-trained word embeddings and language models for Polish. Each model was trained on a corpus consisting of Polish Wikipedia dump, Polish books and articles, 1.5 billion tokens at total. 
