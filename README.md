@@ -1,12 +1,10 @@
 # Polish NLP resources
 
-This repository contains pre-trained models and language resources for Natural Language Processing in Polish created during my research work, including:
+This repository contains pre-trained models and language resources for Natural Language Processing in Polish created during my research work.
 
-*Sławomir Dadas: “Combining neural and knowledge-based approaches to Named Entity Recognition in Polish”, 2018; [arXiv:1811.10418](https://arxiv.org/abs/1811.10418).*
+## Word embeddings and language models
 
-## Word embeddings
-
-The following section includes pre-trained word embedding models for Polish. Each model was trained on a corpus consisting of Polish Wikipedia dump, Polish books and articles, 1.5 billion tokens at total. 
+The following section includes pre-trained word embeddings and language models for Polish. Each model was trained on a corpus consisting of Polish Wikipedia dump, Polish books and articles, 1.5 billion tokens at total. 
 
 ### Word2Vec
 
@@ -106,6 +104,34 @@ if __name__ == '__main__':
 ```
 
 [Download (Google Drive)](https://drive.google.com/open?id=1vkAHM5m9AnWeVEaWqU2nXO_0Odkxsu49) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/compressed.zip)
+
+## Machine translation models
+
+This section includes pre-trained machine translation models.
+
+### Polish-English and English-Polish convolutional models for Fairseq
+
+We provide Polish-English and English-Polish convolutional neural machine translation models trained using [Fairseq](https://github.com/pytorch/fairseq) sequence modeling toolkit. Both models were trained on a parallel corpus of more than 40 million sentence pairs taken from [Opus](http://opus.nlpl.eu/) collection. Sample usage (`fairseq`, `sacremoses` and `subword-nmt` python packages are required to run this example):
+
+```python
+from fairseq.models import BaseFairseqModel
+
+model_path = "/polish-english/"
+model = BaseFairseqModel.from_pretrained(
+    model_name_or_path=model_path,
+    checkpoint_file="checkpoint_best.pt",
+    data_name_or_path=model_path,
+    tokenizer="moses",
+    bpe="subword_nmt",
+    bpe_codes="code",
+    cpu=True
+)
+print(model.translate(sentence="Zespół astronomów odkrył w konstelacji Panny niezwykłą planetę.", beam=5))
+# A team of astronomers discovered an extraordinary planet in the constellation of Virgo.
+```
+
+Polish-English convolutional model: [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/nmt-models-conv/polish-english-conv.zip) \
+English-Polish convolutional model: [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/nmt-models-conv/english-polish-conv.zip)
 
 ## Dictionaries and lexicons
 
