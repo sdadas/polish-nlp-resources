@@ -7,6 +7,7 @@ This repository contains pre-trained models and language resources for Natural L
 - [Word embeddings and language models](#word-embeddings-and-language-models)
 - [Machine translation models](#machine-translation-models)
 - [Dictionaries and lexicons](#dictionaries-and-lexicons)
+- [Links to external resources](#links-to-external-resources)
 
 
 ## Word embeddings and language models
@@ -43,9 +44,9 @@ if __name__ == '__main__':
 # [('bieruty', 0.9290274381637573), ('gierut', 0.8921363353729248), ('bieruta', 0.8906412124633789), ('bierutow', 0.8795544505119324), ('bierutowsko', 0.839280366897583)]
 ```
 
-[Download (Google Drive)](https://drive.google.com/open?id=1yfReM7EJGL1vk2dNbyM7X10I6k6lJMuX) (v2, trained on Gensim 3.8.0)
+[Download (Google Drive)](https://drive.google.com/open?id=1yfReM7EJGL1vk2dNbyM7X10I6k6lJMuX) (v2, trained with Gensim 3.8.0)
 
-[Download (Google Drive)](https://drive.google.com/open?id=1_suJ-AxZ9yZ5zB5uW8UIaBJDNni83ZxJ) (v1, trained on Gensim 3.5.0, DEPRECATED)
+[Download (Google Drive)](https://drive.google.com/open?id=1_suJ-AxZ9yZ5zB5uW8UIaBJDNni83ZxJ) (v1, trained with Gensim 3.5.0, DEPRECATED)
 
 ### GloVe
 
@@ -157,3 +158,17 @@ Besides that, it also contains names of popular brands, companies and common abb
 This resource was created in a semi-automatic way, by extracting the words and their forms from SJP.PL using a set of heuristic rules and then manually filtering out words that weren't named entities.
 
 [Download (GitHub)](lexicons/named-sjp)
+
+## Links to external resources
+
+### Repositories of linguistic tools and resources
+
+- [Computational Linguistics in Poland - IPI PAN](http://clip.ipipan.waw.pl/LRT)
+- [G4.19 Research Group, Wroclaw University of Technology](http://nlp.pwr.wroc.pl/narzedzia-i-zasoby)
+- [CLARIN - repository of linguistic resources](https://clarin-pl.eu/dspace/)
+
+### Multilingual models supporting Polish language
+
+- [Multilingual BERT](https://github.com/google-research/bert/blob/master/multilingual.md) - BERT (Bidirectional Encoder Representations from Transformers) is a model for generating contextual word representations. Multilingual cased model provided by Google supports 104 languages including Polish.
+- [Universal Sentence Encoder](https://tfhub.dev/google/universal-sentence-encoder-multilingual-large/1) - USE (Universal Sentence Encoder) generates sentence level langauge representations. Pre-trained multilingual model supports 16 langauges (Arabic, Chinese-simplified, Chinese-traditional, English, French, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Spanish, Thai, Turkish, Russian).
+- [LASER Language-Agnostic SEntence Representations](https://github.com/facebookresearch/LASER) - A multilingual sentence encoder by Facebook Research, supporting 93 languages.
