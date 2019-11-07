@@ -68,7 +68,7 @@ if __name__ == '__main__':
 
 Embeddings from Language Models (ELMo) is a contextual embedding presented in [Deep contextualized word representations](https://arxiv.org/abs/1802.05365) by Peters et al. Sample usage with PyTorch below, for a more detailed instructions for integrating ELMo with your model please refer to the official repositories [github.com/allenai/bilm-tf](https://github.com/allenai/bilm-tf) (Tensorflow) and [github.com/allenai/allennlp](https://github.com/allenai/allennlp) (PyTorch).
 
-```
+```python
 from allennlp.commands.elmo import ElmoEmbedder
 
 elmo = ElmoEmbedder("options.json", "weights.hdf5")
