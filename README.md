@@ -66,7 +66,14 @@ if __name__ == '__main__':
  
 ### ELMo
 
-Embeddings from Language Models (ELMo) is a contextual embedding presented in [Deep contextualized word representations](https://arxiv.org/abs/1802.05365) by Peters et al. Since the usage of this model is not trivial and there are several different ways of integrating it into deep learning architecture, for more information on ELMo please refer to the official repositories [github.com/allenai/bilm-tf](https://github.com/allenai/bilm-tf) (Tensorflow) and [github.com/allenai/allennlp](https://github.com/allenai/allennlp) (PyTorch).
+Embeddings from Language Models (ELMo) is a contextual embedding presented in [Deep contextualized word representations](https://arxiv.org/abs/1802.05365) by Peters et al. Sample usage with PyTorch below, for a more detailed instructions for integrating ELMo with your model please refer to the official repositories [github.com/allenai/bilm-tf](https://github.com/allenai/bilm-tf) (Tensorflow) and [github.com/allenai/allennlp](https://github.com/allenai/allennlp) (PyTorch).
+
+```
+from allennlp.commands.elmo import ElmoEmbedder
+
+elmo = ElmoEmbedder("options.json", "weights.hdf5")
+print(elmo.embed_sentence(["Zażółcić", "gęślą", "jaźń"]))
+```
 
 [Download (Google Drive)](https://drive.google.com/open?id=110c2H7_fsBvVmGJy08FEkkyRiMOhInBP) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/elmo.zip)
 
