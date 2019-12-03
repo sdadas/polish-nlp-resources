@@ -1,6 +1,16 @@
 # Polish NLP resources
 
-This repository contains pre-trained models and language resources for Natural Language Processing in Polish created during my research work.
+This repository contains pre-trained models and language resources for Natural Language Processing in Polish created during my research work. If you'd like to use any of those resources in your research please cite:
+
+```
+@Misc{,
+  author =       {S{\l}awomir Dadas},
+  title =        {A repository of Polish {NLP} resources},
+  howpublished = {Github},
+  year =         {2019},
+  url =          {https://github.com/sdadas/polish-nlp-resources/}
+}
+```
 
 ## Contents
 
