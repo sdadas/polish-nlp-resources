@@ -26,7 +26,7 @@ The following section includes pre-trained word embeddings and language models f
 
 ### Word2Vec
 
-Word2Vec trained with [Gensim](https://radimrehurek.com/gensim/). 100 dimensions, negative sampling, contains lemmatized words with 3 or more ocurrences in the corpus and additionally a set of pre-defined punctuation symbols, all numbers from 0 to 10'000, Polish forenames and lastnames. The archive contains embedding in gensim binary format. Sample usage:
+Word2Vec trained with [Gensim](https://radimrehurek.com/gensim/). 100 dimensions, negative sampling, contains lemmatized words with 3 or more ocurrences in the corpus and additionally a set of pre-defined punctuation symbols, all numbers from 0 to 10'000, Polish forenames and lastnames. The archive contains embedding in gensim binary format. Example of usage:
 
 ```python
 from gensim.models import KeyedVectors
@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
 ### FastText
 
-FastText trained with [Gensim](https://radimrehurek.com/gensim/). Vocabulary and dimensionality is identical to Word2Vec model. The archive contains embedding in gensim binary format. Sample usage:
+FastText trained with [Gensim](https://radimrehurek.com/gensim/). Vocabulary and dimensionality is identical to Word2Vec model. The archive contains embedding in gensim binary format. Example of usage:
 
 ```python
 from gensim.models import KeyedVectors
@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
 ### GloVe
 
-Global Vectors for Word Representation (GloVe) trained using the reference implementation from Stanford NLP. 100 dimensions, contains lemmatized words with 3 or more ocurrences in the corpus. Sample usage:
+Global Vectors for Word Representation (GloVe) trained using the reference implementation from Stanford NLP. 100 dimensions, contains lemmatized words with 3 or more ocurrences in the corpus. Example of usage:
 
 ```python
 from gensim.models import KeyedVectors
@@ -92,6 +92,34 @@ print(elmo.embed_sentence(["Zażółcić", "gęślą", "jaźń"]))
 ```
 
 [Download (Google Drive)](https://drive.google.com/open?id=110c2H7_fsBvVmGJy08FEkkyRiMOhInBP) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/elmo.zip)
+
+### RoBERTa
+
+Language model for Polish based on popular transformer architecture. We provide weights for improved BERT language model introduced in [RoBERTa: A Robustly Optimized BERT Pretraining Approach](https://arxiv.org/pdf/1907.11692.pdf). The model was trained on the corpus described at the beginning of this section with the addition of [Polish Parliamentary Corpus](https://clarin-pl.eu/dspace/handle/11321/467), about 15GB of Polish texts in total which is close to size of original RoBERTa base model. We used a batch size of 2048 samples and trained for 125'000 update steps. Example in Fairseq:
+
+```python
+import os
+from fairseq.models.roberta import RobertaModel, RobertaHubInterface
+from fairseq import hub_utils
+
+model_path = "/roberta/"
+loaded = hub_utils.from_pretrained(
+    model_name_or_path=model_path,
+    checkpoint_file="checkpoint_best.pt",
+    data_name_or_path=model_path,
+    bpe="sentencepiece",
+    sentencepiece_vocab=os.path.join(model_path, "sentencepiece.model"),
+    load_checkpoint_heads=True,
+    archive_map=RobertaModel.hub_models(),
+    cpu=True
+)
+roberta = RobertaHubInterface(loaded['args'], loaded['task'], loaded['models'][0])
+roberta.eval()
+roberta.fill_mask('Bolesław Bierut objął rządy w <mask> roku.', topk=1)
+roberta.fill_mask('Największym problemem we współczesnym świecie jest <mask>.', topk=1)
+# [('Bolesław Bierut objął rządy w 1948 roku.', 0.16639530658721924, ' 1948')]
+# [('Największym problemem we współczesnym świecie jest terroryzm.', 0.12607643008232117, ' terroryzm')]
+```
 
 ### Compressed Word2Vec
 
@@ -142,7 +170,7 @@ This section includes pre-trained machine translation models.
 
 ### Polish-English and English-Polish convolutional models for Fairseq
 
-We provide Polish-English and English-Polish convolutional neural machine translation models trained using [Fairseq](https://github.com/pytorch/fairseq) sequence modeling toolkit. Both models were trained on a parallel corpus of more than 40 million sentence pairs taken from [Opus](http://opus.nlpl.eu/) collection. Sample usage (`fairseq`, `sacremoses` and `subword-nmt` python packages are required to run this example):
+We provide Polish-English and English-Polish convolutional neural machine translation models trained using [Fairseq](https://github.com/pytorch/fairseq) sequence modeling toolkit. Both models were trained on a parallel corpus of more than 40 million sentence pairs taken from [Opus](http://opus.nlpl.eu/) collection. Example of usage (`fairseq`, `sacremoses` and `subword-nmt` python packages are required to run this example):
 
 ```python
 from fairseq.models import BaseFairseqModel
