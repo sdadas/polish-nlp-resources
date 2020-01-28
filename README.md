@@ -121,6 +121,8 @@ roberta.fill_mask('Największym problemem we współczesnym świecie jest <mask>
 # [('Największym problemem we współczesnym świecie jest terroryzm.', 0.12607643008232117, ' terroryzm')]
 ```
 
+[Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/roberta/roberta.zip)
+
 ### Compressed Word2Vec
 
 This is a compressed version of the Word2Vec embedding model described above. For compression, we used the method described in [Compressing Word Embeddings via Deep Compositional Code Learning](https://arxiv.org/abs/1711.01068) by Shu and Nakayama. Compressed embeddings are suited for deployment on storage-poor devices such as mobile phones. The model weights 38MB, only 4.4% size of the original Word2Vec embeddings. Although the authors of the article claimed that compressing with their method doesn't hurt model performance, we noticed a slight but acceptable drop of accuracy when using compressed version of embeddings. Sample decoder class with usage:
