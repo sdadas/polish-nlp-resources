@@ -3,7 +3,7 @@
 This repository contains pre-trained models and language resources for Natural Language Processing in Polish created during my research work. If you'd like to use any of those resources in your research please cite:
 
 ```
-@Misc{,
+@Misc{polish-nlp-resources,
   author =       {S{\l}awomir Dadas},
   title =        {A repository of Polish {NLP} resources},
   howpublished = {Github},
