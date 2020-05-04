@@ -95,33 +95,78 @@ print(elmo.embed_sentence(["Zażółcić", "gęślą", "jaźń"]))
 
 ### RoBERTa
 
-Language model for Polish based on popular transformer architecture. We provide weights for improved BERT language model introduced in [RoBERTa: A Robustly Optimized BERT Pretraining Approach](https://arxiv.org/pdf/1907.11692.pdf). The model was trained on the corpus described at the beginning of this section with the addition of [Polish Parliamentary Corpus](https://clarin-pl.eu/dspace/handle/11321/467), about 15GB of Polish texts in total which is close to size of original RoBERTa base model. We used a batch size of 2048 samples and trained for 125'000 update steps. Example in Fairseq:
+Language model for Polish based on popular transformer architecture. We provide weights for improved BERT language model introduced in [RoBERTa: A Robustly Optimized BERT Pretraining Approach](https://arxiv.org/pdf/1907.11692.pdf). We provide two RoBERTa models for Polish - base and large model. A summary of pre-training parameters for each model is shown in the table below. We release two version of the each model: one in the [Fairseq](https://github.com/pytorch/fairseq) format and the other in the [HuggingFace Transformers](https://github.com/huggingface/transformers) format. More information about the models can be found in a [separate repository](https://github.com/sdadas/polish-roberta).
+
+<table>
+<thead>
+<th>Model</th>
+<th>L / H / A*</th>
+<th>Batch size</th>
+<th>Update steps</th>
+<th>Corpus size</th>
+<th>Final perplexity**</th>
+<th>Fairseq</th>
+<th>Transformers</th>
+</thead>
+<tr>
+  <td>RoBERTa&nbsp;(base)</td>
+  <td>12&nbsp;/&nbsp;768&nbsp;/&nbsp;12</td>
+  <td>8k</td>
+  <td>125k</td>
+  <td>~20GB</td>
+  <td>3.66</td>
+  <td>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_base_fairseq.zip">Download</a>
+  </td>
+  <td>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_base_transformers.zip">Download</a>
+  </td>
+</tr>
+<tr>
+  <td>RoBERTa&nbsp;(large)</td>
+  <td>24&nbsp;/&nbsp;1024&nbsp;/&nbsp;16</td>
+  <td>30k</td>
+  <td>50k</td>
+  <td>~135GB</td>
+  <td>2.92</td>
+  <td>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_large_fairseq.zip">Download</a>
+  </td>
+  <td>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_large_transformers.zip">Download</a>
+  </td>
+</tr>
+</table>
+
+\* L - the number of encoder blocks, H - hidden size, A - the number of attention heads <br/>
+\** Perplexity of the best checkpoint, computed on the validation split
+
+Example in Fairseq:
 
 ```python
 import os
 from fairseq.models.roberta import RobertaModel, RobertaHubInterface
 from fairseq import hub_utils
 
-model_path = "/roberta/"
+model_path = "roberta_large_fairseq"
 loaded = hub_utils.from_pretrained(
     model_name_or_path=model_path,
-    checkpoint_file="checkpoint_best.pt",
     data_name_or_path=model_path,
     bpe="sentencepiece",
-    sentencepiece_vocab=os.path.join(model_path, "sentencepiece.model"),
+    sentencepiece_vocab=os.path.join(model_path, "sentencepiece.bpe.model"),
     load_checkpoint_heads=True,
     archive_map=RobertaModel.hub_models(),
     cpu=True
 )
 roberta = RobertaHubInterface(loaded['args'], loaded['task'], loaded['models'][0])
 roberta.eval()
-roberta.fill_mask('Bolesław Bierut objął rządy w <mask> roku.', topk=1)
-roberta.fill_mask('Największym problemem we współczesnym świecie jest <mask>.', topk=1)
-# [('Bolesław Bierut objął rządy w 1948 roku.', 0.16639530658721924, ' 1948')]
-# [('Największym problemem we współczesnym świecie jest terroryzm.', 0.12607643008232117, ' terroryzm')]
+roberta.fill_mask('Druga wojna światowa zakończyła się w <mask> roku.', topk=1)
+roberta.fill_mask('Ludzie najbardziej boją się <mask>.', topk=1)
+#[('Druga wojna światowa zakończyła się w 1945 roku.', 0.9345270991325378, ' 1945')]
+#[('Ludzie najbardziej boją się śmierci.', 0.14140743017196655, ' śmierci')]
 ```
 
-[Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/roberta/roberta.zip)
+It is recommended to use the above models, but it is still possible to download [our old model](https://github.com/sdadas/polish-nlp-resources/releases/download/roberta/roberta.zip), trained on smaller batch size (2K) and smaller corpus (15GB).
 
 ### Compressed Word2Vec
 
