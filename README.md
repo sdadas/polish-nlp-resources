@@ -116,10 +116,12 @@ Language model for Polish based on popular transformer architecture. We provide 
   <td>~20GB</td>
   <td>3.66</td>
   <td>
-  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_base_fairseq.zip">Download</a>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_base_fairseq.zip">v0.9.0</a>
   </td>
   <td>
-  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_base_transformers.zip">Download</a>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_base_transformers.zip">v2.8</a>
+  &nbsp;
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models-transformers-v2.9.0/roberta_base_transformers.zip">v2.9</a>
   </td>
 </tr>
 <tr>
@@ -130,10 +132,12 @@ Language model for Polish based on popular transformer architecture. We provide 
   <td>~135GB</td>
   <td>2.92</td>
   <td>
-  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_large_fairseq.zip">Download</a>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_large_fairseq.zip">v0.9.0</a>
   </td>
   <td>
-  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_large_transformers.zip">Download</a>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_large_transformers.zip">v2.8</a>
+  &nbsp;
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models-transformers-v2.9.0/roberta_large_transformers.zip">v2.9</a>
   </td>
 </tr>
 </table>
