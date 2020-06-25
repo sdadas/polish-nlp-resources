@@ -266,6 +266,7 @@ This resource was created in a semi-automatic way, by extracting the words and t
 - [Computational Linguistics in Poland - IPI PAN](http://clip.ipipan.waw.pl/LRT)
 - [G4.19 Research Group, Wroclaw University of Technology](http://nlp.pwr.wroc.pl/narzedzia-i-zasoby)
 - [CLARIN - repository of linguistic resources](https://clarin-pl.eu/dspace/)
+- [Gonito.net - evaluation platform with some challenges for Polish](https://gonito.net)
 
 ### Multilingual models supporting Polish language
 
