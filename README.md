@@ -82,6 +82,9 @@ Pre-trained vectors using the same vocabulary as above but with higher dimension
 **Word2Vec** - [300d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EbNa5QXEYU5Jnbmq8gIK72YBRiQPybNBytVh2TaUCckyJQ?e=8Qa3vs), 
 [500d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EQhO8-jVdWdHgVPSfDH-_0UB7N1PYCePdGAkt_y9Yuz0XA?e=NmrzhW), [800d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EepasgWhcIVLhACbANP4i-YBHaVgngZ0jJocsJNW0H80tw?e=YBk5bi)
 
+**FastText** - [300d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/ERP19CsCaj1LoUe0ph3qujgBSIXGMBu4v92Hu-Yy9rJyag?e=8lpl5k), 
+[500d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EX5ey8dihCdEkEFXeNrjzKsBmX9yeVPg92tdOsTfRmM_ug?e=NfwX9M), [800d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/Ebaa90Ft45ZAjvXGhAdrW2QBOJmfWMyl9czbwgYFqnZmvg?e=au9MLE)
+
 ### ELMo
 
 Embeddings from Language Models (ELMo) is a contextual embedding presented in [Deep contextualized word representations](https://arxiv.org/abs/1802.05365) by Peters et al. Sample usage with PyTorch below, for a more detailed instructions for integrating ELMo with your model please refer to the official repositories [github.com/allenai/bilm-tf](https://github.com/allenai/bilm-tf) (Tensorflow) and [github.com/allenai/allennlp](https://github.com/allenai/allennlp) (PyTorch).
