@@ -271,6 +271,10 @@ This resource was created in a semi-automatic way, by extracting the words and t
 - [CLARIN - repository of linguistic resources](https://clarin-pl.eu/dspace/)
 - [Gonito.net - evaluation platform with some challenges for Polish](https://gonito.net)
 
+### Polish models
+
+- [Marian-NMT](https://marian-nmt.github.io/) - An efficient C++ based implementation of neural translation models. Many pre-trained models are available, including those supporting Polish: [pl-de](https://huggingface.co/Helsinki-NLP/opus-mt-pl-de), [pl-en](https://huggingface.co/Helsinki-NLP/opus-mt-pl-en), [pl-es](https://huggingface.co/Helsinki-NLP/opus-mt-pl-es), [pl-fr](https://huggingface.co/Helsinki-NLP/opus-mt-pl-fr), [pl-sv](https://huggingface.co/Helsinki-NLP/opus-mt-pl-sv), [de-pl](https://huggingface.co/Helsinki-NLP/opus-mt-de-pl), [es-pl](https://huggingface.co/Helsinki-NLP/opus-mt-es-pl), [fr-pl](https://huggingface.co/Helsinki-NLP/opus-mt-fr-pl).
+
 ### Multilingual models supporting Polish language
 
 - [Multilingual BERT](https://github.com/google-research/bert/blob/master/multilingual.md) - BERT (Bidirectional Encoder Representations from Transformers) is a model for generating contextual word representations. Multilingual cased model provided by Google supports 104 languages including Polish.
