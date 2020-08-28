@@ -283,4 +283,4 @@ This resource was created in a semi-automatic way, by extracting the words and t
 - [LASER Language-Agnostic SEntence Representations](https://github.com/facebookresearch/LASER) (2019) - A multilingual sentence encoder by Facebook Research, supporting 93 languages.
 - [XLM-RoBERTa](https://github.com/pytorch/fairseq/tree/master/examples/xlmr) (2019) - Cross lingual sentence encoder trained on 2.5 terabytes of data from CommonCrawl and Wikipedia. Supports 100 languages including Polish. See [Unsupervised Cross-lingual Representation Learning at Scale](https://arxiv.org/pdf/1911.02116.pdf) for details.
 - [Slavic BERT](https://github.com/deepmipt/Slavic-BERT-NER#slavic-bert) (2019) - Multilingual BERT model supporting Bulgarian (bg), Czech (cs), Polish (pl) and Russian (ru) languages.
-- [LaBSE](https://tfhub.dev/google/LaBSE/1) (2020) - Language-agnostic BERT sentence embedding model supporting 109 languages.
+- [LaBSE](https://tfhub.dev/google/LaBSE/1) (2020) - Language-agnostic BERT sentence embedding model supporting 109 languages. See [Language-agnostic BERT Sentence Embedding](https://arxiv.org/abs/2007.01852) for details.
