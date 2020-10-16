@@ -273,14 +273,21 @@ This resource was created in a semi-automatic way, by extracting the words and t
 
 ### Polish models
 
+#### Machine translation
 - [Marian-NMT](https://marian-nmt.github.io/) - An efficient C++ based implementation of neural translation models. Many pre-trained models are available, including those supporting Polish: [pl-de](https://huggingface.co/Helsinki-NLP/opus-mt-pl-de), [pl-en](https://huggingface.co/Helsinki-NLP/opus-mt-pl-en), [pl-es](https://huggingface.co/Helsinki-NLP/opus-mt-pl-es), [pl-fr](https://huggingface.co/Helsinki-NLP/opus-mt-pl-fr), [pl-sv](https://huggingface.co/Helsinki-NLP/opus-mt-pl-sv), [de-pl](https://huggingface.co/Helsinki-NLP/opus-mt-de-pl), [es-pl](https://huggingface.co/Helsinki-NLP/opus-mt-es-pl), [fr-pl](https://huggingface.co/Helsinki-NLP/opus-mt-fr-pl).
+
+#### Optical character recognition (OCR)
 - [Easy OCR](https://github.com/JaidedAI/EasyOCR) - Optical character recognition toolkit with pre-trained models for over 40 languages, including Polish.
 
 ### Multilingual models supporting Polish language
 
+#### Language models
 - [Multilingual BERT](https://github.com/google-research/bert/blob/master/multilingual.md) (2018) - BERT (Bidirectional Encoder Representations from Transformers) is a model for generating contextual word representations. Multilingual cased model provided by Google supports 104 languages including Polish.
-- [Universal Sentence Encoder](https://tfhub.dev/google/universal-sentence-encoder-multilingual-large/1) (2019) - USE (Universal Sentence Encoder) generates sentence level langauge representations. Pre-trained multilingual model supports 16 langauges (Arabic, Chinese-simplified, Chinese-traditional, English, French, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Spanish, Thai, Turkish, Russian).
-- [LASER Language-Agnostic SEntence Representations](https://github.com/facebookresearch/LASER) (2019) - A multilingual sentence encoder by Facebook Research, supporting 93 languages.
 - [XLM-RoBERTa](https://github.com/pytorch/fairseq/tree/master/examples/xlmr) (2019) - Cross lingual sentence encoder trained on 2.5 terabytes of data from CommonCrawl and Wikipedia. Supports 100 languages including Polish. See [Unsupervised Cross-lingual Representation Learning at Scale](https://arxiv.org/pdf/1911.02116.pdf) for details.
 - [Slavic BERT](https://github.com/deepmipt/Slavic-BERT-NER#slavic-bert) (2019) - Multilingual BERT model supporting Bulgarian (bg), Czech (cs), Polish (pl) and Russian (ru) languages.
+
+#### Sentence encoders
+- [Universal Sentence Encoder](https://tfhub.dev/google/universal-sentence-encoder-multilingual-large/1) (2019) - USE (Universal Sentence Encoder) generates sentence level langauge representations. Pre-trained multilingual model supports 16 langauges (Arabic, Chinese-simplified, Chinese-traditional, English, French, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Spanish, Thai, Turkish, Russian).
+- [LASER Language-Agnostic SEntence Representations](https://github.com/facebookresearch/LASER) (2019) - A multilingual sentence encoder by Facebook Research, supporting 93 languages.
 - [LaBSE](https://tfhub.dev/google/LaBSE/1) (2020) - Language-agnostic BERT sentence embedding model supporting 109 languages. See [Language-agnostic BERT Sentence Embedding](https://arxiv.org/abs/2007.01852) for details.
+- [Sentence Transformers](https://github.com/UKPLab/sentence-transformers) (2020) - Sentence-level models based on the transformer architecture. The library includes multilingual models supporting Polish. More information on multilingual knowledge distillation method used by the authors can be found in [Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation](https://arxiv.org/abs/2004.09813).
