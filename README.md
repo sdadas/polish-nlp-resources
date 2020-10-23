@@ -124,7 +124,7 @@ Language model for Polish based on popular transformer architecture. We provide 
   <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_base_fairseq.zip">v0.9.0</a>
   </td>
   <td>
-  <a href="https://github.com/sdadas/polish-roberta/releases/download/models-transformers-v2.9.0/roberta_base_transformers.zip">v2.9</a>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models-transformers-v3.4.0/roberta_base_transformers.zip">v3.4</a>
   </td>
 </tr>
 <tr>
@@ -138,7 +138,7 @@ Language model for Polish based on popular transformer architecture. We provide 
   <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_large_fairseq.zip">v0.9.0</a>
   </td>
   <td>
-  <a href="https://github.com/sdadas/polish-roberta/releases/download/models-transformers-v2.9.0/roberta_large_transformers.zip">v2.9</a>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models-transformers-v3.4.0/roberta_large_transformers.zip">v3.4</a>
   </td>
 </tr>
 </table>
