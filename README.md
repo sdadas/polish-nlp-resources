@@ -175,7 +175,7 @@ It is recommended to use the above models, but it is still possible to download 
 
 ### BART
 
-BART is a transformer-based sequence to sequence model trained with a denoising objective. Can be used for fine-tuning on prediction tasks, just like regular BERT, as well as various text generation tasks such as machine translation, summarization, paraphrasing etc. We provide a Polish version of BART base model, trained on a large corpus of texts from extracted Common Crawl (200+ GB). More information on the BART architecture can be found in [BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension](https://arxiv.org/abs/1910.13461). Example in HugginFace Transformers:
+BART is a transformer-based sequence to sequence model trained with a denoising objective. Can be used for fine-tuning on prediction tasks, just like regular BERT, as well as various text generation tasks such as machine translation, summarization, paraphrasing etc. We provide a Polish version of BART base model, trained on a large corpus of texts extracted from Common Crawl (200+ GB). More information on the BART architecture can be found in [BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension](https://arxiv.org/abs/1910.13461). Example in HugginFace Transformers:
 
 ```python
 import os
