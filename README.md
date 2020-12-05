@@ -173,6 +173,26 @@ roberta.fill_mask('Ludzie najbardziej boją się <mask>.', topk=1)
 
 It is recommended to use the above models, but it is still possible to download [our old model](https://github.com/sdadas/polish-nlp-resources/releases/download/roberta/roberta.zip), trained on smaller batch size (2K) and smaller corpus (15GB).
 
+### BART
+
+BART is a transformer-based sequence to sequence model trained with a denoising objective. Can be used for fine-tuning on prediction tasks, just like regular BERT, as well as various text generation tasks such as machine translation, summarization, paraphrasing etc. We provide a Polish version of BART base model, trained on a large corpus of texts from extracted Common Crawl (200+ GB). More information on the BART architecture can be found in [BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension](https://arxiv.org/abs/1910.13461). Example in HugginFace Transformers:
+
+```python
+import os
+from transformers import BartForConditionalGeneration, PreTrainedTokenizerFast
+
+model_dir = "bart_base_transformers"
+tok = PreTrainedTokenizerFast(tokenizer_file=os.path.join(model_dir, "tokenizer.json"))
+model = BartForConditionalGeneration.from_pretrained(model_dir)
+sent = "Druga<mask>światowa zakończyła się w<mask>roku kapitulacją hitlerowskich<mask>"
+batch = tok(sent, return_tensors='pt')
+generated_ids = model.generate(batch['input_ids'])
+print(tok.batch_decode(generated_ids, skip_special_tokens=True))
+# ['Druga wojna światowa zakończyła się w 1945 roku kapitulacją hitlerowskich Niemiec.']
+```
+
+Download for [Fairseq v0.10](https://github.com/sdadas/polish-nlp-resources/releases/download/bart-base/bart_base_fairseq.zip) or [HuggingFace Transformers v4.0](https://github.com/sdadas/polish-nlp-resources/releases/download/bart-base/bart_base_transformers.zip).
+
 ### Compressed Word2Vec
 
 This is a compressed version of the Word2Vec embedding model described above. For compression, we used the method described in [Compressing Word Embeddings via Deep Compositional Code Learning](https://arxiv.org/abs/1711.01068) by Shu and Nakayama. Compressed embeddings are suited for deployment on storage-poor devices such as mobile phones. The model weights 38MB, only 4.4% size of the original Word2Vec embeddings. Although the authors of the article claimed that compressing with their method doesn't hurt model performance, we noticed a slight but acceptable drop of accuracy when using compressed version of embeddings. Sample decoder class with usage:
