@@ -79,11 +79,11 @@ Pre-trained vectors using the same vocabulary as above but with higher dimension
 
 **GloVe** - **300d:** [Part 1 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_300_3_polish.zip.001), **500d:** [Part 1 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_500_3_polish.zip.001) [Part 2 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_500_3_polish.zip.002), **800d:** [Part 1 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_800_3_polish.zip.001) [Part 2 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_800_3_polish.zip.002) [Part 3 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_800_3_polish.zip.003) 
 
-**Word2Vec** - [300d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EbNa5QXEYU5Jnbmq8gIK72YBRiQPybNBytVh2TaUCckyJQ?e=8Qa3vs), 
-[500d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EQhO8-jVdWdHgVPSfDH-_0UB7N1PYCePdGAkt_y9Yuz0XA?e=NmrzhW), [800d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EepasgWhcIVLhACbANP4i-YBHaVgngZ0jJocsJNW0H80tw?e=YBk5bi)
+**Word2Vec** - [300d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EQ7QA6PkPupBtZYyP8kaafMB0z9FdHfME7kxm_tcRWh9hA?e=RGekMu), 
+[500d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EfBT7WvY7eVHuQZIuUpnJzsBXTN2L896ldVvhRBiCmUH_A?e=F0LGVc), [800d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/Eda0vUkicNpNk4oMf2eoLZkBTJbMTmymKqqZ_yoEXw98TA?e=rKu4pP)
 
-**FastText** - [300d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/ERP19CsCaj1LoUe0ph3qujgBSIXGMBu4v92Hu-Yy9rJyag?e=8lpl5k), 
-[500d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EX5ey8dihCdEkEFXeNrjzKsBmX9yeVPg92tdOsTfRmM_ug?e=NfwX9M), [800d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/Ebaa90Ft45ZAjvXGhAdrW2QBOJmfWMyl9czbwgYFqnZmvg?e=au9MLE)
+**FastText** - [300d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/ESj0xTXmTK5Jhiocp5Oxt7IBUUmaEjczFWvQn17c2QNgcg?e=9aory9), 
+[500d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EViVRrF38fJMv1ihX2ARDNEBFFOE-MLSDHCcMG49IqEcCQ?e=g36NJ7), [800d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/ESHkEJ7jLGlHoAIKiYdL0NkB_Z8VJyFcEHx3TpE7L1kNFg?e=FkoBgA)
 
 ### ELMo
 
