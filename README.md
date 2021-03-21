@@ -109,7 +109,6 @@ Language model for Polish based on popular transformer architecture. We provide 
 <th>Batch size</th>
 <th>Update steps</th>
 <th>Corpus size</th>
-<th>Final perplexity**</th>
 <th>Fairseq</th>
 <th>Transformers</th>
 </thead>
@@ -119,7 +118,6 @@ Language model for Polish based on popular transformer architecture. We provide 
   <td>8k</td>
   <td>125k</td>
   <td>~20GB</td>
-  <td>3.66</td>
   <td>
   <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_base_fairseq.zip">v0.9.0</a>
   </td>
@@ -128,12 +126,24 @@ Language model for Polish based on popular transformer architecture. We provide 
   </td>
 </tr>
 <tr>
+  <td>RoBERTa&#8209;v2&nbsp;(base)</td>
+  <td>12&nbsp;/&nbsp;768&nbsp;/&nbsp;12</td>
+  <td>8k</td>
+  <td>400k</td>
+  <td>~20GB</td>
+  <td>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models-v2/roberta_base_fairseq.zip">v0.10.1</a>
+  </td>
+  <td>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models-v2/roberta_base_transformers.zip">v4.4</a>
+  </td>
+</tr>
+<tr>
   <td>RoBERTa&nbsp;(large)</td>
   <td>24&nbsp;/&nbsp;1024&nbsp;/&nbsp;16</td>
   <td>30k</td>
   <td>50k</td>
   <td>~135GB</td>
-  <td>2.92</td>
   <td>
   <a href="https://github.com/sdadas/polish-roberta/releases/download/models/roberta_large_fairseq.zip">v0.9.0</a>
   </td>
@@ -144,7 +154,6 @@ Language model for Polish based on popular transformer architecture. We provide 
 </table>
 
 \* L - the number of encoder blocks, H - hidden size, A - the number of attention heads <br/>
-\** Perplexity of the best checkpoint, computed on the validation split
 
 Example in Fairseq:
 
