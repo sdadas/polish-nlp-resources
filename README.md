@@ -299,6 +299,17 @@ This resource was created in a semi-automatic way, by extracting the words and t
 - [G4.19 Research Group, Wroclaw University of Technology](http://nlp.pwr.wroc.pl/narzedzia-i-zasoby)
 - [CLARIN - repository of linguistic resources](https://clarin-pl.eu/dspace/)
 - [Gonito.net - evaluation platform with some challenges for Polish](https://gonito.net)
+- [Awesome NLP Polish (ksopyla)](https://github.com/ksopyla/awesome-nlp-polish)
+
+### Publicly available large Polish text corpora (> 1GB)
+
+- [OSCAR Corpus (Common Crawl extract)](https://oscar-corpus.com/)
+- [CC-100 Web Crawl Data (Common Crawl extract)](http://data.statmt.org/cc-100/)
+- [The Polish Parliamentary Corpus](http://clip.ipipan.waw.pl/PPC)
+- [Redistributable subcorpora of the National Corpus of Polish](http://zil.ipipan.waw.pl/DistrNKJP)
+- [Polish Wikipedia Dumps](https://dumps.wikimedia.org/plwiki/)
+- [OPUS Parallel Corpora](https://opus.nlpl.eu/)
+- [Corpus from PolEval 2018 Language Modeling Task](http://2018.poleval.pl/index.php/tasks/)
 
 ### Models supporting Polish language
 
