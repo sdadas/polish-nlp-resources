@@ -313,6 +313,15 @@ This resource was created in a semi-automatic way, by extracting the words and t
 
 ### Models supporting Polish language
 
+#### Sentence analysis (tokenization, lemmatization, POS tagging etc.)
+
+- [Stanza](https://stanfordnlp.github.io/stanza/) - A collection of neural NLP models for many languages from StndordNLP.
+- [Trankit](https://github.com/nlp-uoregon/trankit) - A light-weight transformer-based python toolkit for multilingual natural language processing by the University of Oregon.
+- [KRNNT](https://github.com/kwrobel-nlp/krnnt) and [KFTT](https://github.com/kwrobel-nlp/kftt) - Neural morphosyntactic taggers for Polish.
+- [Morfeusz](http://morfeusz.sgjp.pl/) - A classic Polish morphosyntactic tagger.
+- [Language Tool](https://github.com/languagetool-org/languagetool) - Java-based open source proofreading software for many languages with sentence analysis tools included.
+- [Stempel](https://github.com/dzieciou/pystempel) - Algorythmic stemmer for Polish.
+
 #### Machine translation
 - [Marian-NMT](https://marian-nmt.github.io/) - An efficient C++ based implementation of neural translation models. Many pre-trained models are available, including those supporting Polish: [pl-de](https://huggingface.co/Helsinki-NLP/opus-mt-pl-de), [pl-en](https://huggingface.co/Helsinki-NLP/opus-mt-pl-en), [pl-es](https://huggingface.co/Helsinki-NLP/opus-mt-pl-es), [pl-fr](https://huggingface.co/Helsinki-NLP/opus-mt-pl-fr), [pl-sv](https://huggingface.co/Helsinki-NLP/opus-mt-pl-sv), [de-pl](https://huggingface.co/Helsinki-NLP/opus-mt-de-pl), [es-pl](https://huggingface.co/Helsinki-NLP/opus-mt-es-pl), [fr-pl](https://huggingface.co/Helsinki-NLP/opus-mt-fr-pl).
 - [M2M](https://github.com/pytorch/fairseq/tree/master/examples/m2m_100) - A single massive machine translation architecture supporting direct translation for any pair from the list of 100 languages. Details in the paper [Beyond English-Centric Multilingual Machine Translation](https://arxiv.org/pdf/2010.11125.pdf).
@@ -322,6 +331,7 @@ This resource was created in a semi-automatic way, by extracting the words and t
 - [XLM-RoBERTa](https://github.com/pytorch/fairseq/tree/master/examples/xlmr) (2019) - Cross lingual sentence encoder trained on 2.5 terabytes of data from CommonCrawl and Wikipedia. Supports 100 languages including Polish. See [Unsupervised Cross-lingual Representation Learning at Scale](https://arxiv.org/pdf/1911.02116.pdf) for details.
 - [Slavic BERT](https://github.com/deepmipt/Slavic-BERT-NER#slavic-bert) (2019) - Multilingual BERT model supporting Bulgarian (bg), Czech (cs), Polish (pl) and Russian (ru) languages.
 - [mT5](https://github.com/google-research/multilingual-t5) (2020) - Google's text-to-text transformer for 101 languages based on the T5 architecture. Details in the paper [mT5: A massively multilingual pre-trained text-to-text transformer](https://arxiv.org/abs/2010.11934).
+- [HerBERT](https://huggingface.co/allegro) (2020) - Polish BERT-based language model trained by Allegro for HuggingFace Transformers in [base](https://huggingface.co/allegro/herbert-base-cased) and [large](https://huggingface.co/allegro/herbert-large-cased) variant.
 
 #### Sentence encoders
 - [Universal Sentence Encoder](https://tfhub.dev/google/universal-sentence-encoder-multilingual-large/1) (2019) - USE (Universal Sentence Encoder) generates sentence level langauge representations. Pre-trained multilingual model supports 16 langauges (Arabic, Chinese-simplified, Chinese-traditional, English, French, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Spanish, Thai, Turkish, Russian).
