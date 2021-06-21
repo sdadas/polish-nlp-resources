@@ -202,6 +202,42 @@ print(tok.batch_decode(generated_ids, skip_special_tokens=True))
 
 Download for [Fairseq v0.10](https://github.com/sdadas/polish-nlp-resources/releases/download/bart-base/bart_base_fairseq.zip) or [HuggingFace Transformers v4.0](https://github.com/sdadas/polish-nlp-resources/releases/download/bart-base/bart_base_transformers.zip).
 
+### GPT-2
+
+GPT-2 is a unidirectional transformer-based language model trained with an auto-regressive objective, originally introduced in the [Language Models are Unsupervised Multitask Learners](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) paper. The original English GPT-2 was released in four sizes differing by the number of parameters: small (112M), medium (345M), large (774M), xl (1.5B). We provide Polish versions of the medium and large GPT-2 models. Example in Fairseq:
+
+```python
+import os
+from fairseq import hub_utils
+from fairseq.models.transformer_lm import TransformerLanguageModel
+
+model_dir = "gpt2_medium_fairseq"
+loaded = hub_utils.from_pretrained(
+    model_name_or_path=model_dir,
+    checkpoint_file="model.pt",
+    data_name_or_path=model_dir,
+    bpe="hf_byte_bpe",
+    bpe_merges=os.path.join(model_dir, "merges.txt"),
+    bpe_vocab=os.path.join(model_dir, "vocab.json"),
+    load_checkpoint_heads=True,
+    archive_map=TransformerLanguageModel.hub_models()
+)
+model = hub_utils.GeneratorHubInterface(loaded["args"], loaded["task"], loaded["models"])
+model.eval()
+result = model.sample(
+    ["Policja skontrolowała trzeźwość kierowców"],
+    beam=5, sampling=True, sampling_topk=50, sampling_topp=0.95,
+    temperature=0.95, max_len_a=1, max_len_b=100, no_repeat_ngram_size=3
+)
+print(result[0])
+# Policja skontrolowała trzeźwość kierowców pojazdów. Wszystko działo się na drodze gminnej, między Radwanowem 
+# a Boguchowem. - Około godziny 12.30 do naszego komisariatu zgłosił się kierowca, którego zaniepokoiło 
+# zachowanie kierującego w chwili wjazdu na tą drogę. Prawdopodobnie nie miał zapiętych pasów - informuje st. asp. 
+# Anna Węgrzyniak z policji w Brzezinach. Okazało się, że kierujący był pod wpływem alkoholu. [...]
+```
+
+Download [medium](https://github.com/sdadas/polish-nlp-resources/releases/download/gpt-2/gpt2_medium_fairseq.7z) or [large](https://github.com/sdadas/polish-nlp-resources/releases/download/gpt-2/gpt2_large_fairseq.7z) model for Fairseq v0.10. 
+
 ### Compressed Word2Vec
 
 This is a compressed version of the Word2Vec embedding model described above. For compression, we used the method described in [Compressing Word Embeddings via Deep Compositional Code Learning](https://arxiv.org/abs/1711.01068) by Shu and Nakayama. Compressed embeddings are suited for deployment on storage-poor devices such as mobile phones. The model weights 38MB, only 4.4% size of the original Word2Vec embeddings. Although the authors of the article claimed that compressing with their method doesn't hurt model performance, we noticed a slight but acceptable drop of accuracy when using compressed version of embeddings. Sample decoder class with usage:
