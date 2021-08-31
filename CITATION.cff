@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use resources in this repository, please cite it as below."
+authors:
+  - family-names: Dadas
+    given-names: Sławomir
+    orcid: https://orcid.org/0000-0002-9177-6685
+title: "Polish NLP resources"
+version: 1.0
+date-released: 2019-08-01
+url: "https://github.com/sdadas/polish-nlp-resources"
