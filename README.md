@@ -164,6 +164,20 @@ Language model for Polish based on popular transformer architecture. We provide 
   <a href="https://github.com/sdadas/polish-roberta/releases/download/models-v2/roberta_large_transformers.zip">v4.14</a>
   </td>
 </tr>
+  </tr>
+  <tr>
+  <td>DistilRoBERTa</td>
+  <td>6&nbsp;/&nbsp;768&nbsp;/&nbsp;12</td>
+  <td>1k</td>
+  <td>10ep.</td>
+  <td>~20GB</td>
+  <td>
+  n/a
+  </td>
+  <td>
+  <a href="https://github.com/sdadas/polish-roberta/releases/download/models-v2/distilroberta_transformers.zip">v4.13</a>
+  </td>
+</tr>
 </table>
 
 \* L - the number of encoder blocks, H - hidden size, A - the number of attention heads <br/>
