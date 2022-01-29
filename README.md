@@ -395,6 +395,7 @@ This resource was created in a semi-automatic way, by extracting the words and t
 - [Slavic BERT](https://github.com/deepmipt/Slavic-BERT-NER#slavic-bert) (2019) - Multilingual BERT model supporting Bulgarian (bg), Czech (cs), Polish (pl) and Russian (ru) languages.
 - [mT5](https://github.com/google-research/multilingual-t5) (2020) - Google's text-to-text transformer for 101 languages based on the T5 architecture. Details in the paper [mT5: A massively multilingual pre-trained text-to-text transformer](https://arxiv.org/abs/2010.11934).
 - [HerBERT](https://huggingface.co/allegro) (2020) - Polish BERT-based language model trained by Allegro for HuggingFace Transformers in [base](https://huggingface.co/allegro/herbert-base-cased) and [large](https://huggingface.co/allegro/herbert-large-cased) variant.
+- [plT5](https://huggingface.co/allegro/plt5-large) - Polish version of the T5 model available in [small](https://huggingface.co/allegro/plt5-small), [base](https://huggingface.co/allegro/plt5-base) and [large](https://huggingface.co/allegro/plt5-large) sizes.   
 
 #### Sentence encoders
 - [Universal Sentence Encoder](https://tfhub.dev/google/universal-sentence-encoder-multilingual-large/1) (2019) - USE (Universal Sentence Encoder) generates sentence level langauge representations. Pre-trained multilingual model supports 16 langauges (Arabic, Chinese-simplified, Chinese-traditional, English, French, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Spanish, Thai, Turkish, Russian).
