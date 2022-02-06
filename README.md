@@ -407,3 +407,4 @@ This resource was created in a semi-automatic way, by extracting the words and t
 
 #### Optical character recognition (OCR)
 - [Easy OCR](https://github.com/JaidedAI/EasyOCR) - Optical character recognition toolkit with pre-trained models for over 40 languages, including Polish.
+- [Tesseract](https://github.com/tesseract-ocr/tesseract) - Popular OCR software developed since 1980s, supporting over 100 languages. For integration with Python, wrappers such as [PyTesseract](https://github.com/madmaze/pytesseract) or [OCRMyPDF](https://github.com/ocrmypdf/OCRmyPDF) can be used. 
