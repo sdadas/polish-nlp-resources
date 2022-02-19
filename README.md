@@ -1,6 +1,8 @@
 # Polish NLP resources
 
-This repository contains pre-trained models and language resources for Natural Language Processing in Polish created during my research work. If you'd like to use any of those resources in your research please cite:
+This repository contains pre-trained models and language resources for Natural Language Processing in Polish created during my research. Some of the models are also available on **[Huggingface Hub](https://huggingface.co/sdadas)**.
+
+If you'd like to use any of those resources in your research please cite:
 
 ```bibtex
 @Misc{polish-nlp-resources,
