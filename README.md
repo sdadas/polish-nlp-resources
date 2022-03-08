@@ -16,15 +16,16 @@ If you'd like to use any of those resources in your research please cite:
 
 ## Contents
 
-- [Word embeddings and language models](#word-embeddings-and-language-models)
+- [Word embeddings](#word-embeddings)
+- [Language models](#language-models)
 - [Machine translation models](#machine-translation-models)
 - [Dictionaries and lexicons](#dictionaries-and-lexicons)
 - [Links to external resources](#links-to-external-resources)
 
 
-## Word embeddings and language models
+## Word embeddings
 
-The following section includes pre-trained word embeddings and language models for Polish. Each model was trained on a corpus consisting of Polish Wikipedia dump, Polish books and articles, 1.5 billion tokens at total. 
+The following section includes pre-trained word embeddings for Polish. Each model was trained on a corpus consisting of Polish Wikipedia dump, Polish books and articles, 1.5 billion tokens at total. 
 
 ### Word2Vec
 
@@ -86,6 +87,51 @@ Pre-trained vectors using the same vocabulary as above but with higher dimension
 
 **FastText** - [300d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/ESj0xTXmTK5Jhiocp5Oxt7IBUUmaEjczFWvQn17c2QNgcg?e=9aory9), 
 [500d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EViVRrF38fJMv1ihX2ARDNEBFFOE-MLSDHCcMG49IqEcCQ?e=g36NJ7), [800d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/ESHkEJ7jLGlHoAIKiYdL0NkB_Z8VJyFcEHx3TpE7L1kNFg?e=FkoBgA)
+
+### Compressed Word2Vec
+
+This is a compressed version of the Word2Vec embedding model described above. For compression, we used the method described in [Compressing Word Embeddings via Deep Compositional Code Learning](https://arxiv.org/abs/1711.01068) by Shu and Nakayama. Compressed embeddings are suited for deployment on storage-poor devices such as mobile phones. The model weights 38MB, only 4.4% size of the original Word2Vec embeddings. Although the authors of the article claimed that compressing with their method doesn't hurt model performance, we noticed a slight but acceptable drop of accuracy when using compressed version of embeddings. Sample decoder class with usage:
+
+```python
+import gzip
+from typing import Dict, Callable
+import numpy as np
+
+class CompressedEmbedding(object):
+
+    def __init__(self, vocab_path: str, embedding_path: str, to_lowercase: bool=True):
+        self.vocab_path: str = vocab_path
+        self.embedding_path: str = embedding_path
+        self.to_lower: bool = to_lowercase
+        self.vocab: Dict[str, int] = self.__load_vocab(vocab_path)
+        embedding = np.load(embedding_path)
+        self.codes: np.ndarray = embedding[embedding.files[0]]
+        self.codebook: np.ndarray = embedding[embedding.files[1]]
+        self.m = self.codes.shape[1]
+        self.k = int(self.codebook.shape[0] / self.m)
+        self.dim: int = self.codebook.shape[1]
+
+    def __load_vocab(self, vocab_path: str) -> Dict[str, int]:
+        open_func: Callable = gzip.open if vocab_path.endswith(".gz") else open
+        with open_func(vocab_path, "rt", encoding="utf-8") as input_file:
+            return {line.strip():idx for idx, line in enumerate(input_file)}
+
+    def vocab_vector(self, word: str):
+        if word == "<pad>": return np.zeros(self.dim)
+        val: str = word.lower() if self.to_lower else word
+        index: int = self.vocab.get(val, self.vocab["<unk>"])
+        codes = self.codes[index]
+        code_indices = np.array([idx * self.k + offset for idx, offset in enumerate(np.nditer(codes))])
+        return np.sum(self.codebook[code_indices], axis=0)
+
+if __name__ == '__main__':
+    word2vec = CompressedEmbedding("word2vec_100_3.vocab.gz", "word2vec_100_3.compressed.npz")
+    print(word2vec.vocab_vector("bierut"))
+```
+
+[Download (Google Drive)](https://drive.google.com/open?id=1vkAHM5m9AnWeVEaWqU2nXO_0Odkxsu49) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/compressed.zip)
+
+## Language models
 
 ### ELMo
 
@@ -265,50 +311,18 @@ print(result[0])
 # Anna Węgrzyniak z policji w Brzezinach. Okazało się, że kierujący był pod wpływem alkoholu. [...]
 ```
 
-Download [medium](https://github.com/sdadas/polish-nlp-resources/releases/download/gpt-2/gpt2_medium_fairseq.7z) or [large](https://github.com/sdadas/polish-nlp-resources/releases/download/gpt-2/gpt2_large_fairseq.7z) model for Fairseq v0.10. 
+Download [medium](https://github.com/sdadas/polish-nlp-resources/releases/download/gpt-2/gpt2_medium_fairseq.7z) or [large](https://github.com/sdadas/polish-nlp-resources/releases/download/gpt-2/gpt2_large_fairseq.7z) model for Fairseq v0.10.
 
-### Compressed Word2Vec
+### Longformer
 
-This is a compressed version of the Word2Vec embedding model described above. For compression, we used the method described in [Compressing Word Embeddings via Deep Compositional Code Learning](https://arxiv.org/abs/1711.01068) by Shu and Nakayama. Compressed embeddings are suited for deployment on storage-poor devices such as mobile phones. The model weights 38MB, only 4.4% size of the original Word2Vec embeddings. Although the authors of the article claimed that compressing with their method doesn't hurt model performance, we noticed a slight but acceptable drop of accuracy when using compressed version of embeddings. Sample decoder class with usage:
+One of the main constraints of standard Transformer architectures is the limitation on the number of input tokens. There are several known models that allow processing of long documents, one of the popular ones being Longformer, introduced in the paper [Longformer: The Long-Document Transformer](https://arxiv.org/abs/2004.05150). We provide base and large versions of Polish Longformer model. The models were initialized with Polish RoBERTa (v2) weights and then fine-tuned on a corpus of long documents, ranging from 1024 to 4096 tokens. Example in Huggingface Transformers:
 
 ```python
-import gzip
-from typing import Dict, Callable
-import numpy as np
-
-class CompressedEmbedding(object):
-
-    def __init__(self, vocab_path: str, embedding_path: str, to_lowercase: bool=True):
-        self.vocab_path: str = vocab_path
-        self.embedding_path: str = embedding_path
-        self.to_lower: bool = to_lowercase
-        self.vocab: Dict[str, int] = self.__load_vocab(vocab_path)
-        embedding = np.load(embedding_path)
-        self.codes: np.ndarray = embedding[embedding.files[0]]
-        self.codebook: np.ndarray = embedding[embedding.files[1]]
-        self.m = self.codes.shape[1]
-        self.k = int(self.codebook.shape[0] / self.m)
-        self.dim: int = self.codebook.shape[1]
-
-    def __load_vocab(self, vocab_path: str) -> Dict[str, int]:
-        open_func: Callable = gzip.open if vocab_path.endswith(".gz") else open
-        with open_func(vocab_path, "rt", encoding="utf-8") as input_file:
-            return {line.strip():idx for idx, line in enumerate(input_file)}
-
-    def vocab_vector(self, word: str):
-        if word == "<pad>": return np.zeros(self.dim)
-        val: str = word.lower() if self.to_lower else word
-        index: int = self.vocab.get(val, self.vocab["<unk>"])
-        codes = self.codes[index]
-        code_indices = np.array([idx * self.k + offset for idx, offset in enumerate(np.nditer(codes))])
-        return np.sum(self.codebook[code_indices], axis=0)
-
-if __name__ == '__main__':
-    word2vec = CompressedEmbedding("word2vec_100_3.vocab.gz", "word2vec_100_3.compressed.npz")
-    print(word2vec.vocab_vector("bierut"))
+from transformers import pipeline
+fill_mask = pipeline('fill-mask', model='sdadas/polish-longformer-base-4096')
+fill_mask('Stolica oraz największe miasto Francji to <mask>.')
 ```
-
-[Download (Google Drive)](https://drive.google.com/open?id=1vkAHM5m9AnWeVEaWqU2nXO_0Odkxsu49) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/compressed.zip)
+[Base](https://huggingface.co/sdadas/polish-longformer-base-4096) and [large](https://huggingface.co/sdadas/polish-longformer-large-4096) models are available on Huggingface Hub
 
 ## Machine translation models
 
