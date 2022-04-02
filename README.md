@@ -426,3 +426,7 @@ This resource was created in a semi-automatic way, by extracting the words and t
 #### Optical character recognition (OCR)
 - [Easy OCR](https://github.com/JaidedAI/EasyOCR) - Optical character recognition toolkit with pre-trained models for over 40 languages, including Polish.
 - [Tesseract](https://github.com/tesseract-ocr/tesseract) - Popular OCR software developed since 1980s, supporting over 100 languages. For integration with Python, wrappers such as [PyTesseract](https://github.com/madmaze/pytesseract) or [OCRMyPDF](https://github.com/ocrmypdf/OCRmyPDF) can be used. 
+
+#### Multimodal models
+- [Multilingual CLIP (SBert)](https://huggingface.co/sentence-transformers/clip-ViT-B-32-multilingual-v1) - CLIP (Contrastive Language-Image Pre-Training) is a neural network introducted by [OpenAI](https://github.com/openai/CLIP) which enables joint vector representations for images and text. It can be used for building image search engines. This is a multilingual version of CLIP trained by the authors of the [Sentence-Transformers](https://www.sbert.net/) library.
+- [Multilingual CLIP (M-CLIP)](https://huggingface.co/M-CLIP/M-BERT-Base-ViT-B) - This is yet another multilingual version of CLIP supporting Polish language, trained by the Swedish Institute of Computer Science (SICS).
