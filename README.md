@@ -18,6 +18,7 @@ If you'd like to use any of those resources in your research please cite:
 
 - [Word embeddings](#word-embeddings)
 - [Language models](#language-models)
+- [Sentence encoders](#sentence-encoders)
 - [Machine translation models](#machine-translation-models)
 - [Dictionaries and lexicons](#dictionaries-and-lexicons)
 - [Links to external resources](#links-to-external-resources)
@@ -323,6 +324,43 @@ fill_mask = pipeline('fill-mask', model='sdadas/polish-longformer-base-4096')
 fill_mask('Stolica oraz największe miasto Francji to <mask>.')
 ```
 [Base](https://huggingface.co/sdadas/polish-longformer-base-4096) and [large](https://huggingface.co/sdadas/polish-longformer-large-4096) models are available on Huggingface Hub
+
+## Sentence encoders
+
+### Polish transformer-based sentence encoders
+
+The purpose of sentence encoders is to produce a fixed-length vector representation for chunks of text, such as sentences or paragraphs. These models are used in semantic search, question answering, document clustering, dataset augmentation, plagiarism detection, and other tasks which involve measuring semantic similarity between sentences. We share two models based on the [Sentence-Transformers](https://www.sbert.net/) library, trained using distillation method described in the paper [Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation](https://arxiv.org/abs/2004.09813). A corpus of 100 million parallel Polish-English sentence pairs from the [OPUS](https://opus.nlpl.eu/) project was used to train the models. You can download them from the Hugginface Hub using the links below.
+
+<table>
+<thead>
+<th>Student model</th>
+<th>Teacher model</th>
+<th>Download</th>
+</thead>
+<tr>
+  <td>polish-roberta-base-v2</td>
+  <td>paraphrase-distilroberta-base-v2</td>
+  <td><a href="https://huggingface.co/sdadas/st-polish-paraphrase-from-distilroberta">st-polish-paraphrase-from-distilroberta</a></td>
+</tr>
+<tr>
+  <td>polish-roberta-base-v2</td>
+  <td>paraphrase-mpnet-base-v2</td>
+  <td><a href="https://huggingface.co/sdadas/st-polish-paraphrase-from-mpnet">st-polish-paraphrase-from-mpnet</a></td>
+</tr>
+</table>
+
+A simple example in Sentence-Transformers library:
+
+```python
+from sentence_transformers import SentenceTransformer
+from sentence_transformers.util import cos_sim
+
+sentences = ["Bardzo lubię jeść słodycze.", "Uwielbiam zajadać się słodkościami."]
+model = SentenceTransformer("sdadas/st-polish-paraphrase-from-mpnet")
+results = model.encode(sentences, convert_to_tensor=True, show_progress_bar=False)
+print(cos_sim(results[0], results[1]))
+# tensor([[0.9794]], device='cuda:0')
+```
 
 ## Machine translation models
 
