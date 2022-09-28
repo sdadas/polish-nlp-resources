@@ -432,6 +432,7 @@ This resource was created in a semi-automatic way, by extracting the words and t
 
 #### Sentence analysis (tokenization, lemmatization, POS tagging etc.)
 
+- [SpaCy](https://spacy.io/models/pl) - A popular library for NLP in Python which includes Polish models for sentence analysis.
 - [Stanza](https://stanfordnlp.github.io/stanza/) - A collection of neural NLP models for many languages from StndordNLP.
 - [Trankit](https://github.com/nlp-uoregon/trankit) - A light-weight transformer-based python toolkit for multilingual natural language processing by the University of Oregon.
 - [KRNNT](https://github.com/kwrobel-nlp/krnnt) and [KFTT](https://github.com/kwrobel-nlp/kftt) - Neural morphosyntactic taggers for Polish.
