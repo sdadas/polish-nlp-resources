@@ -280,7 +280,32 @@ Download for [Fairseq v0.10](https://github.com/sdadas/polish-nlp-resources/rele
 
 ### GPT-2
 
-GPT-2 is a unidirectional transformer-based language model trained with an auto-regressive objective, originally introduced in the [Language Models are Unsupervised Multitask Learners](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) paper. The original English GPT-2 was released in four sizes differing by the number of parameters: small (112M), medium (345M), large (774M), xl (1.5B). We provide Polish versions of the medium and large GPT-2 models. Example in Fairseq:
+GPT-2 is a unidirectional transformer-based language model trained with an auto-regressive objective, originally introduced in the [Language Models are Unsupervised Multitask Learners](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) paper. The original English GPT-2 was released in four sizes differing by the number of parameters: small (112M), medium (345M), large (774M), xl (1.5B). 
+
+#### Models for Huggingface Transformers
+
+We provide Polish GPT-2 models for Huggingface Transformers. The models have been trained using [Megatron-LM](https://github.com/NVIDIA/Megatron-LM) library and then converted to the Huggingface format. The released checkpoints support longer contexts than the original GPT-2 by OpenAI. We have trained the models on texts of up to 2048 tokens, twice as many as GPT-2 models and the same as GPT-3. Example in Transformers:
+
+```python
+from transformers import pipeline
+
+generator = pipeline("text-generation",  model="sdadas/polish-gpt2-medium")
+results = generator("Policja skontrolowała trzeźwość kierowców",
+  max_new_tokens=1024,  do_sample=True, repetition_penalty = 1.2, add_special_tokens=False,
+  num_return_sequences=1, num_beams=1,  temperature=0.95,top_k=50, top_p=0.95
+)
+print(results[0].get("generated_text"))
+# Policja skontrolowała trzeźwość kierowców. Teraz policjanci przypominają kierowcom o zachowaniu 
+# bezpiecznej odległości i środkach ostrożności związanych z pandemią. - Kierujący po spożyciu 
+# alkoholu są bardziej wyczuleni na innych uczestników ruchu drogowego oraz mają większą skłonność 
+# do brawury i ryzykownego zachowania zwłaszcza wobec pieszych. Dodatkowo nie zawsze pamiętają oni 
+# zasady obowiązujących u nas przepisów prawa regulujących kwestie dotyczące odpowiedzialności [...]
+```
+[Small](https://huggingface.co/sdadas/polish-gpt2-small) and [medium](https://huggingface.co/sdadas/polish-gpt2-medium) models are available on the Huggingface Hub
+
+#### Models for Fairseq
+
+We provide Polish versions of the medium and large GPT-2 models trained using Fairseq library. Example in Fairseq:
 
 ```python
 import os
@@ -323,7 +348,7 @@ from transformers import pipeline
 fill_mask = pipeline('fill-mask', model='sdadas/polish-longformer-base-4096')
 fill_mask('Stolica oraz największe miasto Francji to <mask>.')
 ```
-[Base](https://huggingface.co/sdadas/polish-longformer-base-4096) and [large](https://huggingface.co/sdadas/polish-longformer-large-4096) models are available on Huggingface Hub
+[Base](https://huggingface.co/sdadas/polish-longformer-base-4096) and [large](https://huggingface.co/sdadas/polish-longformer-large-4096) models are available on the Huggingface Hub
 
 ## Sentence encoders
 
