@@ -17,11 +17,25 @@ If you'd like to use any of those resources in your research please cite:
 ## Contents
 
 - [Word embeddings](#word-embeddings)
+  - [Word2Vec](#word2vec)
+  - [FastText](#fasttext)
+  - [GloVe](#glove)
+  - [High dimensional word vectors](#high-dimensional-word-vectors)
+  - [Compressed Word2Vec](#compressed-word2vec)
+  - [Wikipedia2Vec](#wikipedia2vec)
 - [Language models](#language-models)
+  - [ELMo](#elmo)
+  - [RoBERTa](#roberta)
+  - [BART](#bart)
+  - [GPT-2](#gpt-2)
+  - [Longformer](#longformer)
 - [Sentence encoders](#sentence-encoders)
 - [Machine translation models](#machine-translation-models)
 - [Dictionaries and lexicons](#dictionaries-and-lexicons)
 - [Links to external resources](#links-to-external-resources)
+  - [Repositories of linguistic tools and resources](#repositories-of-linguistic-tools-and-resources)
+  - [Publicly available large Polish text corpora (> 1GB)](#publicly-available-large-polish-text-corpora--1gb)
+  - [Models supporting Polish language](#models-supporting-polish-language)
 
 
 ## Word embeddings
@@ -131,6 +145,20 @@ if __name__ == '__main__':
 ```
 
 [Download (Google Drive)](https://drive.google.com/open?id=1vkAHM5m9AnWeVEaWqU2nXO_0Odkxsu49) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/compressed.zip)
+
+### Wikipedia2Vec
+[Wikipedia2Vec](https://wikipedia2vec.github.io/) is a toolkit for learning joint representations of words and Wikipedia entities. We share Polish embeddings learned using a modified version of the library in which we added lemmatization and fixed some issues regarding parsing wiki dumps for languages other than English. Embedding models are available in sizes from 100 to 800 dimensions. A simple example: 
+
+```python
+from wikipedia2vec import Wikipedia2Vec
+
+wiki2vec = Wikipedia2Vec.load("wiki2vec-plwiki-100.bin")
+print(wiki2vec.most_similar(wiki2vec.get_entity("Bolesław Bierut")))
+# (<Entity Bolesław Bierut>, 1.0), (<Word bierut>, 0.75790733), (<Word gomułka>, 0.7276504),
+# (<Entity Krajowa Rada Narodowa>, 0.7081445), (<Entity Władysław Gomułka>, 0.7043667) [...]
+```
+
+Download embeddings: [100d](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/Ee_DFnilujxCiHmfUjRsqzUBBPst44eyCtmAnpB-Tq-ykw?e=ZzWIuf), [300d](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EWBzb1a89YJJku3vzFPObTUB5wTNaqIsznKT2AaKSP6xDQ?e=hhxSf0), [500d](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/ERYsJUEo_DlKpUBBV_A86-0BrHDB88TJGr--WtzbKxhfJg?e=BPjH80), [800d](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EQJT8QyrMLFEqtC_1ZdOI54BzOQXIlvoQIbhra9EuIoV7w?e=SLfQrI). 
 
 ## Language models
 
