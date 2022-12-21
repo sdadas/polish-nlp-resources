@@ -319,7 +319,7 @@ from transformers import pipeline
 
 generator = pipeline("text-generation",  model="sdadas/polish-gpt2-medium")
 results = generator("Policja skontrolowała trzeźwość kierowców",
-  max_new_tokens=1024,  do_sample=True, repetition_penalty = 1.2, add_special_tokens=False,
+  max_new_tokens=1024,  do_sample=True, repetition_penalty = 1.2,
   num_return_sequences=1, num_beams=1,  temperature=0.95,top_k=50, top_p=0.95
 )
 print(results[0].get("generated_text"))
