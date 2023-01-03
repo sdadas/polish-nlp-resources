@@ -480,6 +480,8 @@ This resource was created in a semi-automatic way, by extracting the words and t
 - [Polish Wikipedia Dumps](https://dumps.wikimedia.org/plwiki/)
 - [OPUS Parallel Corpora](https://opus.nlpl.eu/)
 - [Corpus from PolEval 2018 Language Modeling Task](http://2018.poleval.pl/index.php/tasks/)
+- [C4 and mC4 corpora (contains ~180GB of compressed Polish text)](https://huggingface.co/datasets/allenai/c4)
+- [NLLB parallel corpus (1613 language pairs of which 43 include Polish)](https://huggingface.co/datasets/allenai/nllb)
 
 ### Models supporting Polish language
 
