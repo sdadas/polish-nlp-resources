@@ -308,11 +308,11 @@ Download for [Fairseq v0.10](https://github.com/sdadas/polish-nlp-resources/rele
 
 ### GPT-2
 
-GPT-2 is a unidirectional transformer-based language model trained with an auto-regressive objective, originally introduced in the [Language Models are Unsupervised Multitask Learners](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) paper. The original English GPT-2 was released in four sizes differing by the number of parameters: small (112M), medium (345M), large (774M), xl (1.5B). 
+GPT-2 is a unidirectional transformer-based language model trained with an auto-regressive objective, originally introduced in the [Language Models are Unsupervised Multitask Learners](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) paper. The original English GPT-2 was released in four sizes differing by the number of parameters: Small (112M), Medium (345M), Large (774M), XL (1.5B). 
 
 #### Models for Huggingface Transformers
 
-We provide Polish GPT-2 models for Huggingface Transformers. The models have been trained using [Megatron-LM](https://github.com/NVIDIA/Megatron-LM) library and then converted to the Huggingface format. The released checkpoints support longer contexts than the original GPT-2 by OpenAI. We have trained the models on texts of up to 2048 tokens, twice as many as GPT-2 models and the same as GPT-3. Example in Transformers:
+We provide Polish GPT-2 models for Huggingface Transformers. The models have been trained using [Megatron-LM](https://github.com/NVIDIA/Megatron-LM) library and then converted to the Huggingface format. The released checkpoints support longer contexts than the original GPT-2 by OpenAI. Small and medium models support up to 2048 tokens, twice as many as GPT-2 models and the same as GPT-3. Large and XL models support up to 1536 tokens. Example in Transformers:
 
 ```python
 from transformers import pipeline
@@ -329,7 +329,7 @@ print(results[0].get("generated_text"))
 # do brawury i ryzykownego zachowania zwłaszcza wobec pieszych. Dodatkowo nie zawsze pamiętają oni 
 # zasady obowiązujących u nas przepisów prawa regulujących kwestie dotyczące odpowiedzialności [...]
 ```
-[Small](https://huggingface.co/sdadas/polish-gpt2-small) and [medium](https://huggingface.co/sdadas/polish-gpt2-medium) models are available on the Huggingface Hub
+[Small](https://huggingface.co/sdadas/polish-gpt2-small), [Medium](https://huggingface.co/sdadas/polish-gpt2-medium), [Large](https://huggingface.co/sdadas/polish-gpt2-large), and [XL](https://huggingface.co/sdadas/polish-gpt2-xl) models are available on the Huggingface Hub
 
 #### Models for Fairseq
 
