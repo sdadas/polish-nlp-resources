@@ -31,6 +31,8 @@ If you'd like to use any of those resources in your research please cite:
   - [Longformer](#longformer)
 - [Sentence encoders](#sentence-encoders)
 - [Machine translation models](#machine-translation-models)
+  - [Convolutional models for Fairseq](#convolutional-models-for-fairseq)
+  - [T5-based models](#t5-based-models)
 - [Dictionaries and lexicons](#dictionaries-and-lexicons)
 - [Links to external resources](#links-to-external-resources)
   - [Repositories of linguistic tools and resources](#repositories-of-linguistic-tools-and-resources)
@@ -419,7 +421,7 @@ print(cos_sim(results[0], results[1]))
 
 This section includes pre-trained machine translation models.
 
-### Polish-English and English-Polish convolutional models for Fairseq
+### Convolutional models for Fairseq
 
 We provide Polish-English and English-Polish convolutional neural machine translation models trained using [Fairseq](https://github.com/pytorch/fairseq) sequence modeling toolkit. Both models were trained on a parallel corpus of more than 40 million sentence pairs taken from [Opus](http://opus.nlpl.eu/) collection. Example of usage (`fairseq`, `sacremoses` and `subword-nmt` python packages are required to run this example):
 
@@ -442,6 +444,20 @@ print(model.translate(sentence="Zespół astronomów odkrył w konstelacji Panny
 
 **Polish-English convolutional model:** [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/nmt-models-conv/polish-english-conv.zip) \
 **English-Polish convolutional model:** [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/nmt-models-conv/english-polish-conv.zip)
+
+### T5-based models
+
+We share MT5 and Flan-T5 models fine-tuned for Polish-English and English-Polish translation. The models were trained on 70 million sentence pairs from [OPUS](http://opus.nlpl.eu/). You can download them from the Hugginface Hub using the links below. An example of how to use the models:
+
+```python
+from transformers import pipeline
+generator = pipeline("translation", model="sdadas/flan-t5-base-translator-en-pl")
+sentence = "A team of astronomers discovered an extraordinary planet in the constellation of Virgo."
+print(generator(sentence, max_length=512))
+# [{'translation_text': 'Zespół astronomów odkrył niezwykłą planetę w gwiazdozbiorze Panny.'}]
+```
+
+The following models are available on the Huggingface Hub: [mt5-base-translator-en-pl](https://huggingface.co/sdadas/mt5-base-translator-en-pl), [mt5-base-translator-pl-en](https://huggingface.co/sdadas/mt5-base-translator-pl-en), [flan-t5-base-translator-en-pl](https://huggingface.co/sdadas/flan-t5-base-translator-en-pl)
 
 ## Dictionaries and lexicons
 
