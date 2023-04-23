@@ -58,7 +58,7 @@ if __name__ == '__main__':
 # [('cyrankiewicz', 0.818274736404419), ('gomułka', 0.7967918515205383), ('raczkiewicz', 0.7757788896560669), ('jaruzelski', 0.7737460732460022), ('pużak', 0.7667238712310791)]
 ```
 
-[Download (Google Drive)](https://drive.google.com/open?id=1t2NsXHE0x5MfUvPR5MDV3_2TlxtdLkzz) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/word2vec.zip)
+[Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/word2vec.zip)
 
 ### FastText
 
@@ -74,9 +74,7 @@ if __name__ == '__main__':
 # [('bieruty', 0.9290274381637573), ('gierut', 0.8921363353729248), ('bieruta', 0.8906412124633789), ('bierutow', 0.8795544505119324), ('bierutowsko', 0.839280366897583)]
 ```
 
-[Download (Google Drive)](https://drive.google.com/open?id=1yfReM7EJGL1vk2dNbyM7X10I6k6lJMuX) (v2, trained with Gensim 3.8.0)
-
-[Download (Google Drive)](https://drive.google.com/open?id=1_suJ-AxZ9yZ5zB5uW8UIaBJDNni83ZxJ) (v1, trained with Gensim 3.5.0, DEPRECATED)
+[Download (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EeoDV_cq0KtAupMa0E9iIlEBMTVvw4OzABbPuAxUMFD8EA?e=5naF5z)
 
 ### GloVe
 
@@ -92,7 +90,7 @@ if __name__ == '__main__':
 # [('cyrankiewicz', 0.8335597515106201), ('gomułka', 0.7793121337890625), ('bieruta', 0.7118682861328125), ('jaruzelski', 0.6743760108947754), ('minc', 0.6692837476730347)]
 ```
 
-[Download (Google Drive)](https://drive.google.com/open?id=1hLGZYOzG543p18ac-AfEsGXQGO6ioKex) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/glove.zip)
+[Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/glove.zip)
 
 ### High dimensional word vectors
 Pre-trained vectors using the same vocabulary as above but with higher dimensionality. These vectors are more suitable for representing larger chunks of text such as sentences or documents using simple word aggregation methods (averaging, max pooling etc.) as more semantic information is preserved this way.
@@ -146,7 +144,7 @@ if __name__ == '__main__':
     print(word2vec.vocab_vector("bierut"))
 ```
 
-[Download (Google Drive)](https://drive.google.com/open?id=1vkAHM5m9AnWeVEaWqU2nXO_0Odkxsu49) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/compressed.zip)
+[Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/compressed.zip)
 
 ### Wikipedia2Vec
 [Wikipedia2Vec](https://wikipedia2vec.github.io/) is a toolkit for learning joint representations of words and Wikipedia entities. We share Polish embeddings learned using a modified version of the library in which we added lemmatization and fixed some issues regarding parsing wiki dumps for languages other than English. Embedding models are available in sizes from 100 to 800 dimensions. A simple example: 
@@ -175,7 +173,7 @@ elmo = ElmoEmbedder("options.json", "weights.hdf5")
 print(elmo.embed_sentence(["Zażółcić", "gęślą", "jaźń"]))
 ```
 
-[Download (Google Drive)](https://drive.google.com/open?id=110c2H7_fsBvVmGJy08FEkkyRiMOhInBP) or [Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/elmo.zip)
+[Download (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/v1.0/elmo.zip)
 
 ### RoBERTa
 
