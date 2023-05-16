@@ -508,6 +508,7 @@ This resource was created in a semi-automatic way, by extracting the words and t
 - [Morfeusz](http://morfeusz.sgjp.pl/) - A classic Polish morphosyntactic tagger.
 - [Language Tool](https://github.com/languagetool-org/languagetool) - Java-based open source proofreading software for many languages with sentence analysis tools included.
 - [Stempel](https://github.com/dzieciou/pystempel) - Algorythmic stemmer for Polish.
+- [PoLemma](https://huggingface.co/amu-cai/polemma-large) - plT5-based lemmatizer of named entities and multi-word expressions for Polish, available in [small](https://huggingface.co/amu-cai/polemma-small), [base](https://huggingface.co/amu-cai/polemma-base) and [large](https://huggingface.co/amu-cai/polemma-large) sizes.
 
 #### Machine translation
 - [Marian-NMT](https://marian-nmt.github.io/) - An efficient C++ based implementation of neural translation models. Many pre-trained models are available, including those supporting Polish: [pl-de](https://huggingface.co/Helsinki-NLP/opus-mt-pl-de), [pl-en](https://huggingface.co/Helsinki-NLP/opus-mt-pl-en), [pl-es](https://huggingface.co/Helsinki-NLP/opus-mt-pl-es), [pl-fr](https://huggingface.co/Helsinki-NLP/opus-mt-pl-fr), [pl-sv](https://huggingface.co/Helsinki-NLP/opus-mt-pl-sv), [de-pl](https://huggingface.co/Helsinki-NLP/opus-mt-de-pl), [es-pl](https://huggingface.co/Helsinki-NLP/opus-mt-es-pl), [fr-pl](https://huggingface.co/Helsinki-NLP/opus-mt-fr-pl).
