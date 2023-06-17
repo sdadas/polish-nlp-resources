@@ -33,6 +33,7 @@ If you'd like to use any of those resources in your research please cite:
 - [Machine translation models](#machine-translation-models)
   - [Convolutional models for Fairseq](#convolutional-models-for-fairseq)
   - [T5-based models](#t5-based-models)
+- [Fine-tuned models](#fine-tuned-models)
 - [Dictionaries and lexicons](#dictionaries-and-lexicons)
 - [Links to external resources](#links-to-external-resources)
   - [Repositories of linguistic tools and resources](#repositories-of-linguistic-tools-and-resources)
@@ -456,6 +457,31 @@ print(generator(sentence, max_length=512))
 ```
 
 The following models are available on the Huggingface Hub: [mt5-base-translator-en-pl](https://huggingface.co/sdadas/mt5-base-translator-en-pl), [mt5-base-translator-pl-en](https://huggingface.co/sdadas/mt5-base-translator-pl-en), [flan-t5-base-translator-en-pl](https://huggingface.co/sdadas/flan-t5-base-translator-en-pl)
+
+## Fine-tuned models
+
+### ByT5-text-correction
+
+A small multilingual utility model intended for simple text correction. It is designed to improve the quality of texts from the web, often lacking punctuation or proper word capitalization. The model was trained to perform three types of corrections: restoring punctuation in sentences, restoring word capitalization, and restoring diacritical marks for languages that include them.
+
+The following languages are supported: Belarusian (be), Danish (da), German (de), Greek (el), English (en), Spanish (es), French (fr), Italian (it), Dutch (nl), Polish (pl), Portuguese (pt), Romanian (ro), Russian (ru), Slovak (sk), Swedish (sv), Ukrainian (uk). The model takes as input a sentence preceded by a language code prefix. For example:
+
+```python
+from transformers import pipeline
+generator = pipeline("text2text-generation", model="sdadas/byt5-text-correction")
+sentences = [
+    "<pl> ciekaw jestem na co licza onuce stawiajace na sykulskiego w nadziei na zwrot ku rosji",
+    "<de> die frage die sich die europäer stellen müssen lautet ist es in unserem interesse die krise auf taiwan zu beschleunigen",
+    "<ru> при своём рождении 26 августа 1910 года тереза получила имя агнес бояджиу"
+]
+generator(sentences, max_length=512)
+# Ciekaw jestem na co liczą onuce stawiające na Sykulskiego w nadziei na zwrot ku Rosji.
+# Die Frage, die sich die Europäer stellen müssen, lautet: Ist es in unserem Interesse, die Krise auf Taiwan zu beschleunigen?
+# При своём рождении 26 августа 1910 года Тереза получила имя Агнес Бояджиу.
+```
+
+The model is available on the Huggingface Hub: [byt5-text-correction](https://huggingface.co/sdadas/byt5-text-correction)
+
 
 ## Dictionaries and lexicons
 
