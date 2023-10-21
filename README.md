@@ -29,7 +29,7 @@ If you'd like to use any of those resources in your research please cite:
   - [BART](#bart)
   - [GPT-2](#gpt-2)
   - [Longformer](#longformer)
-- [Sentence encoders](#sentence-encoders)
+- [Text encoders](#text-encoders)
 - [Machine translation models](#machine-translation-models)
   - [Convolutional models for Fairseq](#convolutional-models-for-fairseq)
   - [T5-based models](#t5-based-models)
@@ -379,11 +379,11 @@ fill_mask('Stolica oraz największe miasto Francji to <mask>.')
 ```
 [Base](https://huggingface.co/sdadas/polish-longformer-base-4096) and [large](https://huggingface.co/sdadas/polish-longformer-large-4096) models are available on the Huggingface Hub
 
-## Sentence encoders
+## Text encoders
+The purpose of text encoders is to produce a fixed-length vector representation for chunks of text, such as sentences or paragraphs. These models are used in semantic search, question answering, document clustering, dataset augmentation, plagiarism detection, and other tasks which involve measuring semantic similarity or relatedness between text passages.
 
-### Polish transformer-based sentence encoders
-
-The purpose of sentence encoders is to produce a fixed-length vector representation for chunks of text, such as sentences or paragraphs. These models are used in semantic search, question answering, document clustering, dataset augmentation, plagiarism detection, and other tasks which involve measuring semantic similarity between sentences. We share two models based on the [Sentence-Transformers](https://www.sbert.net/) library, trained using distillation method described in the paper [Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation](https://arxiv.org/abs/2004.09813). A corpus of 100 million parallel Polish-English sentence pairs from the [OPUS](https://opus.nlpl.eu/) project was used to train the models. You can download them from the Hugginface Hub using the links below.
+### Paraphrase mining and semantic textual similarity
+We share two models based on the [Sentence-Transformers](https://www.sbert.net/) library, trained using distillation method described in the paper [Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation](https://arxiv.org/abs/2004.09813). A corpus of 100 million parallel Polish-English sentence pairs from the [OPUS](https://opus.nlpl.eu/) project was used to train the models. You can download them from the Hugginface Hub using the links below.
 
 <table>
 <thead>
@@ -414,6 +414,79 @@ model = SentenceTransformer("sdadas/st-polish-paraphrase-from-mpnet")
 results = model.encode(sentences, convert_to_tensor=True, show_progress_bar=False)
 print(cos_sim(results[0], results[1]))
 # tensor([[0.9794]], device='cuda:0')
+```
+
+### Information retrieval
+MMLW (muszę mieć lepszą wiadomość) is a set of text encoders trained using [multilingual knowledge distillation method](https://arxiv.org/abs/2004.09813) on a diverse corpus of 60 million Polish-English text pairs, which included both sentence and paragraph aligned translations. The encoders are available in [Sentence-Transformers](https://www.sbert.net/) format.
+
+We provide five encoders optimized for text information retrieval tasks. The models were trained using a two-step process. In the first step, the encoders were initialized with Polish RoBERTa and multilingual E5 checkpoints, and then distilled utilising English BGE as a teacher model. The second step involved fine-tuning the obtained models on [Polish MS MARCO](https://huggingface.co/datasets/clarin-knext/msmarco-pl) dataset with contrastrive loss. In the table below, we present the details of the released models.
+
+<table>
+<thead>
+<th>Student model</th>
+<th>Teacher model</th>
+<th>PIRB<br/>NDCG@10</th>
+<th>Download</th>
+</thead>
+<tr>
+  <td colspan="4"><strong>Encoders based on Polish RoBERTa</strong></td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/sdadas/polish-roberta-base-v2">polish-roberta-base-v2</a></td>
+  <td><a href="https://huggingface.co/BAAI/bge-base-en">bge-base-en</a></td>
+  <td>56.24</td>
+  <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-roberta-base">mmlw-retrieval-roberta-base</a></td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/sdadas/polish-roberta-large-v2">polish-roberta-large-v2</a></td>
+  <td><a href="https://huggingface.co/BAAI/bge-large-en">bge-large-en</a></td>
+  <td>58.15</td>
+  <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-roberta-large">mmlw-retrieval-roberta-large</a></td>
+</tr>
+<tr>
+  <td colspan="4"><strong>Encoders based on Multilingual E5</strong></td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/intfloat/multilingual-e5-small">multilingual-e5-small</a></td>
+  <td><a href="https://huggingface.co/BAAI/bge-small-en">bge-small-en</a></td>
+  <td>52.34</td>
+  <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-e5-small">mmlw-retrieval-e5-small</a></td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/intfloat/multilingual-e5-base">multilingual-e5-base</a></td>
+  <td><a href="https://huggingface.co/BAAI/bge-base-en">bge-base-en</a></td>
+  <td>56.09</td>
+  <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-e5-base">mmlw-retrieval-e5-base</a></td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/intfloat/multilingual-e5-large">multilingual-e5-large</a></td>
+  <td><a href="https://huggingface.co/BAAI/bge-large-en">bge-large-en</a></td>
+  <td>58.05</td>
+  <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-e5-large">mmlw-retrieval-e5-large</a></td>
+</tr>
+</table>
+
+Please note that the developed models require the use of specific prefixes and suffixes when encoding texts. For RoBERTa-based encoders, each query should be preceded by the prefix "zapytanie: ", and no prefix is needed for passages. For E5-based models, queries should be prefixed with "query: " and passages with "passage: ". An example of how to use the models: 
+
+```python
+from sentence_transformers import SentenceTransformer
+from sentence_transformers.util import cos_sim
+
+query_prefix = "zapytanie: "      # "zapytanie: " for roberta, "query: " for e5
+answer_prefix = ""                # empty for roberta, "passage: " for e5
+queries = [query_prefix + "Jak dożyć 100 lat?"]
+answers = [
+    answer_prefix + "Trzeba zdrowo się odżywiać i uprawiać sport.",
+    answer_prefix + "Trzeba pić alkohol, imprezować i jeździć szybkimi autami.",
+    answer_prefix + "Gdy trwała kampania politycy zapewniali, że rozprawią się z zakazem niedzielnego handlu."
+]
+model = SentenceTransformer("sdadas/mmlw-retrieval-roberta-base")
+queries_emb = model.encode(queries, convert_to_tensor=True, show_progress_bar=False)
+answers_emb = model.encode(answers, convert_to_tensor=True, show_progress_bar=False)
+
+best_answer = cos_sim(queries_emb, answers_emb).argmax().item()
+print(answers[best_answer])
+# Trzeba zdrowo się odżywiać i uprawiać sport.
 ```
 
 ## Machine translation models
