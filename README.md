@@ -425,7 +425,7 @@ We provide five encoders optimized for text information retrieval tasks. The mod
 <thead>
 <th>Student model</th>
 <th>Teacher model</th>
-<th>PIRB<br/>NDCG@10</th>
+<th><a href="https://huggingface.co/spaces/sdadas/pirb">PIRB</a><br/>NDCG@10</th>
 <th>Download</th>
 </thead>
 <tr>
@@ -434,13 +434,13 @@ We provide five encoders optimized for text information retrieval tasks. The mod
 <tr>
   <td><a href="https://huggingface.co/sdadas/polish-roberta-base-v2">polish-roberta-base-v2</a></td>
   <td><a href="https://huggingface.co/BAAI/bge-base-en">bge-base-en</a></td>
-  <td>56.24</td>
+  <td>56.38</td>
   <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-roberta-base">mmlw-retrieval-roberta-base</a></td>
 </tr>
 <tr>
   <td><a href="https://huggingface.co/sdadas/polish-roberta-large-v2">polish-roberta-large-v2</a></td>
   <td><a href="https://huggingface.co/BAAI/bge-large-en">bge-large-en</a></td>
-  <td>58.15</td>
+  <td>58.46</td>
   <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-roberta-large">mmlw-retrieval-roberta-large</a></td>
 </tr>
 <tr>
@@ -461,7 +461,7 @@ We provide five encoders optimized for text information retrieval tasks. The mod
 <tr>
   <td><a href="https://huggingface.co/intfloat/multilingual-e5-large">multilingual-e5-large</a></td>
   <td><a href="https://huggingface.co/BAAI/bge-large-en">bge-large-en</a></td>
-  <td>58.05</td>
+  <td>58.30</td>
   <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-e5-large">mmlw-retrieval-e5-large</a></td>
 </tr>
 </table>
