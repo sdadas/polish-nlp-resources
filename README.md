@@ -415,52 +415,70 @@ results = model.encode(sentences, convert_to_tensor=True, show_progress_bar=Fals
 print(cos_sim(results[0], results[1]))
 # tensor([[0.9794]], device='cuda:0')
 ```
+### MMLW 
+MMLW (muszę mieć lepszą wiadomość) is a set of text encoders trained using [multilingual knowledge distillation method](https://arxiv.org/abs/2004.09813) on a diverse corpus of 60 million Polish-English text pairs, which included both sentence and paragraph aligned translations. The encoders are available in [Sentence-Transformers](https://www.sbert.net/) format. We used a two-step process to train the models. In the first step, the encoders were initialized with Polish RoBERTa and multilingual E5 checkpoints, and then distilled utilising English BGE as a teacher model. The resulting models from the distillation step can be used as general-purpose embeddings with applications in various tasks such as text similarity, document clustering, or fuzzy deduplication. The second step involved fine-tuning the obtained models on [Polish MS MARCO](https://huggingface.co/datasets/clarin-knext/msmarco-pl) dataset with contrastrive loss. The second stage models are adapted specifically for information retrieval tasks.
 
-### Information retrieval
-MMLW (muszę mieć lepszą wiadomość) is a set of text encoders trained using [multilingual knowledge distillation method](https://arxiv.org/abs/2004.09813) on a diverse corpus of 60 million Polish-English text pairs, which included both sentence and paragraph aligned translations. The encoders are available in [Sentence-Transformers](https://www.sbert.net/) format.
-
-We provide five encoders optimized for text information retrieval tasks. The models were trained using a two-step process. In the first step, the encoders were initialized with Polish RoBERTa and multilingual E5 checkpoints, and then distilled utilising English BGE as a teacher model. The second step involved fine-tuning the obtained models on [Polish MS MARCO](https://huggingface.co/datasets/clarin-knext/msmarco-pl) dataset with contrastrive loss. In the table below, we present the details of the released models.
+We provide a total of ten text encoders, five distilled and five fine-tuned for information retrieval. In the table below, we present the details of the released models.
 
 <table>
 <thead>
-<th>Student model</th>
-<th>Teacher model</th>
-<th><a href="https://huggingface.co/spaces/sdadas/pirb">PIRB</a><br/>NDCG@10</th>
-<th>Download</th>
+<tr>
+  <th colspan="2">Base models</th>
+  <th colspan="2">Stage 1: Distilled models</th>
+  <th colspan="2">Stage 2: Retrieval models</th>
+</tr>
+<tr>
+  <th>Student model</th>
+  <th>Teacher model</th>
+  <th><a href="https://huggingface.co/spaces/mteb/leaderboard">PL-MTEB</a><br/>Score</th>
+  <th>Download</th>
+  <th><a href="https://huggingface.co/spaces/sdadas/pirb">PIRB</a><br/>NDCG@10</th>
+  <th>Download</th>
+</tr>
 </thead>
 <tr>
-  <td colspan="4"><strong>Encoders based on Polish RoBERTa</strong></td>
+  <td colspan="6"><strong>Encoders based on Polish RoBERTa</strong></td>
 </tr>
 <tr>
   <td><a href="https://huggingface.co/sdadas/polish-roberta-base-v2">polish-roberta-base-v2</a></td>
   <td><a href="https://huggingface.co/BAAI/bge-base-en">bge-base-en</a></td>
+  <td>61.05</td>
+  <td><a href="https://huggingface.co/sdadas/mmlw-roberta-base">mmlw-roberta-base</a></td>
   <td>56.38</td>
   <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-roberta-base">mmlw-retrieval-roberta-base</a></td>
 </tr>
 <tr>
   <td><a href="https://huggingface.co/sdadas/polish-roberta-large-v2">polish-roberta-large-v2</a></td>
   <td><a href="https://huggingface.co/BAAI/bge-large-en">bge-large-en</a></td>
+  <td>63.23</td>
+  <td><a href="https://huggingface.co/sdadas/mmlw-roberta-large">mmlw-roberta-large</a></td>
   <td>58.46</td>
   <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-roberta-large">mmlw-retrieval-roberta-large</a></td>
 </tr>
 <tr>
-  <td colspan="4"><strong>Encoders based on Multilingual E5</strong></td>
+  <td colspan="6"><strong>Encoders based on Multilingual E5</strong></td>
 </tr>
 <tr>
   <td><a href="https://huggingface.co/intfloat/multilingual-e5-small">multilingual-e5-small</a></td>
   <td><a href="https://huggingface.co/BAAI/bge-small-en">bge-small-en</a></td>
+  <td>55.84</td>
+  <td><a href="https://huggingface.co/sdadas/mmlw-e5-small">mmlw-e5-small</a></td>
   <td>52.34</td>
   <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-e5-small">mmlw-retrieval-e5-small</a></td>
 </tr>
 <tr>
   <td><a href="https://huggingface.co/intfloat/multilingual-e5-base">multilingual-e5-base</a></td>
   <td><a href="https://huggingface.co/BAAI/bge-base-en">bge-base-en</a></td>
+  <td>59.71</td>
+  <td><a href="https://huggingface.co/sdadas/mmlw-e5-base">mmlw-e5-base</a></td>
   <td>56.09</td>
   <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-e5-base">mmlw-retrieval-e5-base</a></td>
 </tr>
 <tr>
   <td><a href="https://huggingface.co/intfloat/multilingual-e5-large">multilingual-e5-large</a></td>
   <td><a href="https://huggingface.co/BAAI/bge-large-en">bge-large-en</a></td>
+  <td>61.17</td>
+  <td><a href="https://huggingface.co/sdadas/mmlw-e5-large">mmlw-e5-large</a></td>
   <td>58.30</td>
   <td><a href="https://huggingface.co/sdadas/mmlw-retrieval-e5-large">mmlw-retrieval-e5-large</a></td>
 </tr>
