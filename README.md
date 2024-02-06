@@ -573,6 +573,67 @@ generator(sentences, max_length=512)
 
 The model is available on the Huggingface Hub: [byt5-text-correction](https://huggingface.co/sdadas/byt5-text-correction)
 
+### Text ranking models
+
+We provide a set of text ranking models than can be used in the reranking phase of retrieval augmented generation (RAG) pipelines. Our goal was to build efficient models that combine high accuracy with relatively low computational complexity. We employed Polish RoBERTa language models, fine-tuning them for text ranking task on a large dataset consisting of 1.4 million queries and 10 million documents. The models were trained using two knowledge distillation methods: a standard technique based on mean squared loss (MSE) and the RankNet algorithm that enforces sorting lists of documents according to their relevance to the query. The RankNet metod has proven to be more effective. Below is a summary of the released models:
+
+<table>
+<thead>
+<th>Model</th>
+<th>Parameters</th>
+<th>Training method</th>
+<th><a href="https://huggingface.co/spaces/sdadas/pirb">PIRB</a><br/>NDCG@10</th>
+</thead>
+<tr>
+  <td><a href="https://huggingface.co/sdadas/polish-reranker-base-ranknet">polish-reranker-base-ranknet</a></td>
+  <td>124M</td>
+  <td>RankNet</td>
+  <td>60.32</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/sdadas/polish-reranker-large-ranknet">polish-reranker-large-ranknet</a></td>
+  <td>435M</td>
+  <td>RankNet</td>
+  <td>62.65</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/sdadas/polish-reranker-base-mse">polish-reranker-base-mse</a></td>
+  <td>124M</td>
+  <td>MSE</td>
+  <td>57.50</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/sdadas/polish-reranker-large-mse">polish-reranker-large-mse</a></td>
+  <td>435M</td>
+  <td>MSE</td>
+  <td>60.27</td>
+</tr>
+</table>
+
+The models can be used with sentence-transformers library:
+
+```python
+from sentence_transformers import CrossEncoder
+import torch.nn
+
+query = "Jak dożyć 100 lat?"
+answers = [
+    "Trzeba zdrowo się odżywiać i uprawiać sport.",
+    "Trzeba pić alkohol, imprezować i jeździć szybkimi autami.",
+    "Gdy trwała kampania politycy zapewniali, że rozprawią się z zakazem niedzielnego handlu."
+]
+
+model = CrossEncoder(
+    "sdadas/polish-reranker-large-ranknet",
+    default_activation_function=torch.nn.Identity(),
+    max_length=512,
+    device="cuda" if torch.cuda.is_available() else "cpu"
+)
+pairs = [[query, answer] for answer in answers]
+results = model.predict(pairs)
+print(results.tolist())
+```
+
 
 ## Dictionaries and lexicons
 
