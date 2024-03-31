@@ -677,6 +677,7 @@ This resource was created in a semi-automatic way, by extracting the words and t
 - [NLLB parallel corpus (1613 language pairs of which 43 include Polish)](https://huggingface.co/datasets/allenai/nllb)
 - [CulturaX - a combination of mC4 and OSCAR corpora, cleaned and deduplicated](https://huggingface.co/datasets/uonlp/CulturaX)
 - [MADLAD-400 (Multilingual Audited Dataset: Low-resource And Document-level)](https://huggingface.co/datasets/allenai/MADLAD-400)
+- [SpeakLeash - An initiative to build a large corpus for training Polish LLMs](https://github.com/speakleash/speakleash)
 
 ### Models supporting Polish language
 
