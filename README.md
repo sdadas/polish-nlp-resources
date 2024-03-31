@@ -662,6 +662,7 @@ This resource was created in a semi-automatic way, by extracting the words and t
 - [CLARIN - repository of linguistic resources](https://clarin-pl.eu/dspace/)
 - [Gonito.net - evaluation platform with some challenges for Polish](https://gonito.net)
 - [Awesome NLP Polish (ksopyla)](https://github.com/ksopyla/awesome-nlp-polish)
+- [A catalog of Polish speech corpora (AMU-CAI)](https://github.com/goodmike31/pl-asr-speech-data-survey)
 
 ### Publicly available large Polish text corpora (> 1GB)
 
