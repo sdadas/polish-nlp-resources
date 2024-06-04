@@ -53,7 +53,7 @@ Word2Vec trained with [Gensim](https://radimrehurek.com/gensim/). 100 dimensions
 from gensim.models import KeyedVectors
 
 if __name__ == '__main__':
-    word2vec = KeyedVectors.load("word2vec_polish.bin")
+    word2vec = KeyedVectors.load("word2vec_100_3_polish.bin")
     print(word2vec.similar_by_word("bierut"))
     
 # [('cyrankiewicz', 0.818274736404419), ('gomułka', 0.7967918515205383), ('raczkiewicz', 0.7757788896560669), ('jaruzelski', 0.7737460732460022), ('pużak', 0.7667238712310791)]
