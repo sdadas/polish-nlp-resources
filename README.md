@@ -96,13 +96,11 @@ if __name__ == '__main__':
 ### High dimensional word vectors
 Pre-trained vectors using the same vocabulary as above but with higher dimensionality. These vectors are more suitable for representing larger chunks of text such as sentences or documents using simple word aggregation methods (averaging, max pooling etc.) as more semantic information is preserved this way.
 
-**GloVe** - **300d:** [Part 1 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_300_3_polish.zip.001), **500d:** [Part 1 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_500_3_polish.zip.001) [Part 2 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_500_3_polish.zip.002), **800d:** [Part 1 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_800_3_polish.zip.001) [Part 2 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_800_3_polish.zip.002) [Part 3 (GitHub)](https://github.com/sdadas/polish-nlp-resources/releases/download/glove-hd/glove_800_3_polish.zip.003) 
+**GloVe** - [300d (OPI)](https://share.opi.org.pl/s/kzWtFTTWAnNnmS4), [500d (OPI)](https://share.opi.org.pl/s/TEernXTfFco2EXt), [800d (OPI)](https://share.opi.org.pl/s/MQ4LisDdagX5DWL)
 
-**Word2Vec** - [300d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EQ7QA6PkPupBtZYyP8kaafMB0z9FdHfME7kxm_tcRWh9hA?e=RGekMu), 
-[500d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EfBT7WvY7eVHuQZIuUpnJzsBXTN2L896ldVvhRBiCmUH_A?e=F0LGVc), [800d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/Eda0vUkicNpNk4oMf2eoLZkBTJbMTmymKqqZ_yoEXw98TA?e=rKu4pP)
+**Word2Vec** - [300d (OPI)](https://share.opi.org.pl/s/PnZD2Yck3jQT4ye), [500d (OPI)](https://share.opi.org.pl/s/NMQXAjbi3yx7gZL), [800d (OPI)](https://share.opi.org.pl/s/QTz8Jt2gbMmtnkx)
 
-**FastText** - [300d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/ESj0xTXmTK5Jhiocp5Oxt7IBUUmaEjczFWvQn17c2QNgcg?e=9aory9), 
-[500d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/EViVRrF38fJMv1ihX2ARDNEBFFOE-MLSDHCcMG49IqEcCQ?e=g36NJ7), [800d (OneDrive)](https://witedupl-my.sharepoint.com/:u:/g/personal/dadass_wit_edu_pl/ESHkEJ7jLGlHoAIKiYdL0NkB_Z8VJyFcEHx3TpE7L1kNFg?e=FkoBgA)
+**FastText** - [300d (OPI)](https://share.opi.org.pl/s/5cGH7xMiJg3FzEW), [500d (OPI)](https://share.opi.org.pl/s/kgMqjCL7WM3zQ62), [800d Part 1 (OPI)](https://share.opi.org.pl/s/o2e37A6KsZ4odtd), [800d Part 2 (OPI)](https://share.opi.org.pl/s/a6926zpKPLy9Bq7)
 
 ### Compressed Word2Vec
 
